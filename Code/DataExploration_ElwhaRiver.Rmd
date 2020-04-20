@@ -32,6 +32,7 @@ summary(USGS_ElwhaRiverDischarge$DailySSsand)
 
 str(USGS_ElwhaRiverDischarge$ProjectYear) #5 project years
 
+mean(USGS_ElwhaRiverDischarge$DailyDischarge)
 
 #plots
 ggplot(USGS_ElwhaRiverDischarge) +

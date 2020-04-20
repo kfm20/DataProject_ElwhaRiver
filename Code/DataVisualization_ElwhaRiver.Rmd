@@ -1,0 +1,49 @@
+---
+title: "DataVisualization_ElwhaRiver"
+author: "Kathleen Mason"
+date: "4/20/2020"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r Getting Setup}
+getwd()
+
+library(tidyverse)
+library(viridis)
+library(ggplot2)
+
+USGS_ElwhaRiverDischarge<-read_csv("./Processed/USGS_ElwhaRiver_processed.csv")
+
+class(USGS_ElwhaRiverDischarge$Date) #Still a date, that's good
+
+
+```
+
+```{r Theme}
+
+mytheme <- theme_light(base_size = 14) +
+  theme(axis.text = element_text(color = "black"), 
+        legend.position = "top")
+theme_set(mytheme)
+
+
+#This should add a caption?
+#+labs(subtitle = "theme_gray()")
+```
+
+
+```{r Useful Visualization}
+
+#lines to describe what is happening
+d=data.frame(date=as.Date(c("2011-09-15", "2012-03-17", "2014-08-26")), event=c("x", "xx", "xxx"))
+
+
+
+ggplot(USGS_ElwhaRiverDischarge)+
+  geom_line(aes(x = Date, y = DailyDischarge)) +
+geom_vline(data=d, mapping=aes(xintercept=date), color="green", lty=2)+
+  geom_hline(yintercept = 47.7, lty=3, color="red")
+```
+
