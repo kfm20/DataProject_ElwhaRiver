@@ -1,0 +1,40 @@
+---
+title: "DataExploration_ElwhaRiver"
+author: "Kathleen Mason"
+date: "4/20/2020"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r Getting setup}
+
+getwd()
+USGS_ElwhaRiverDischarge<-read.csv("./Processed/USGS_ElwhaRiver_processed.csv")
+```
+
+```{r exploring}
+
+dim(USGS_ElwhaRiverDischarge)
+#1843 points, 7 columns
+str(USGS_ElwhaRiverDischarge)
+
+class(USGS_ElwhaRiverDischarge$ProjectYear)
+head(USGS_ElwhaRiverDischarge$Date)
+tail(USGS_ElwhaRiverDischarge$Date)
+#Dates go from 2011-09-15 to 2016-09-30
+
+summary(USGS_ElwhaRiverDischarge$DailyDischarge)
+summary(USGS_ElwhaRiverDischarge$DailySSC)
+summary(USGS_ElwhaRiverDischarge$DailySuspendedSediment)
+summary(USGS_ElwhaRiverDischarge$DailySSfines)
+summary(USGS_ElwhaRiverDischarge$DailySSsand)
+
+str(USGS_ElwhaRiverDischarge$ProjectYear) #5 project years
+
+ggplot(USGS_ElwhaRiverDischarge) +
+  geom_point(aes(x = Date, y = DailyDischarge, color = ProjectYear))+
+  
+
+```
+

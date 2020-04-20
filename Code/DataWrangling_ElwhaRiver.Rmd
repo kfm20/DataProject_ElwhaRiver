@@ -19,7 +19,7 @@ USGS_ElwhaDischarge_1<-read.csv("./Raw/USGS_ElwhaDischarge_raw.csv")
 ```{r Wrangling}
 
 #Select only important columns
-USGS_ElwhaDischarge_2<-USGS_ElwhaDischarge_1 %>% select(Day:Daily.SSC..mg.L., Daily.Suspended.Sediment.Load..tonnes.:Daily.SS.Load.of.sand..tonnes.)
+USGS_ElwhaDischarge_2<-USGS_ElwhaDischarge_1 %>% select(Day:Daily.SSC..mg.L., Daily.Suspended.Sediment.Load..tonnes.:Daily.SS.Load.of.sand..tonnes., Project.year)
 
 #Date and ordering by date
 USGS_ElwhaDischarge_2$Day <- as.Date(USGS_ElwhaDischarge_2$Day, format = "%m/%d/%Y")
@@ -30,7 +30,7 @@ USGS_ElwhaDischarge_2<-USGS_ElwhaDischarge_2[order(as.Date(USGS_ElwhaDischarge_2
 
 ```{r Changing Column Names}
 
-colnames(USGS_ElwhaDischarge_2)<- c("Date","DailyDischarge","DailySSC", "DailySuspendedSediment", "DailySSfines", "DailySSsand")
+colnames(USGS_ElwhaDischarge_2)<- c("Date","DailyDischarge","DailySSC", "DailySuspendedSediment", "DailySSfines", "DailySSsand", "ProjectYear")
 
 
 
