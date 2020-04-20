@@ -28,3 +28,17 @@ USGS_ElwhaDischarge_2<-USGS_ElwhaDischarge_2[order(as.Date(USGS_ElwhaDischarge_2
 
 ```
 
+```{r Changing Column Names}
+
+colnames(USGS_ElwhaDischarge_2)<- c("Date","DailyDischarge","DailySSC", "DailySuspendedSediment", "DailySSfines", "DailySSsand")
+
+
+
+```
+
+```{r Saving new file for analysis}
+
+write.csv(USGS_ElwhaDischarge_2, row.names = FALSE, file = ("./Processed/USGS_ElwhaRiver_processed.csv"))
+
+```
+
