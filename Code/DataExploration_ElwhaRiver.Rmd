@@ -32,9 +32,26 @@ summary(USGS_ElwhaRiverDischarge$DailySSsand)
 
 str(USGS_ElwhaRiverDischarge$ProjectYear) #5 project years
 
-ggplot(USGS_ElwhaRiverDischarge) +
-  geom_point(aes(x = Date, y = DailyDischarge, color = ProjectYear))+
-  
 
+#plots
+ggplot(USGS_ElwhaRiverDischarge) +
+  geom_point(aes(x = Date, y = DailyDischarge, color = ProjectYear))
+  
+ggplot(USGS_ElwhaRiverDischarge) +
+  geom_point(aes(x = Date, y = DailySSfines, color=ProjectYear))
+
+ggplot(USGS_ElwhaRiverDischarge) +
+  geom_point(aes(x = Date, y = DailySSsand, color=ProjectYear))
 ```
 
+Notes for visualizations:
+
+*Need dates to be listed by year
+*Insert line when project began and when it ended
+*Project year column isn;t very helpful
+
+
+Research Question:
+How did Dam removal effect sediment flow in the Elwha River?
+>Look at Dailydischarge over time
+>any significant differences between sand and fine grained particles in suspension
