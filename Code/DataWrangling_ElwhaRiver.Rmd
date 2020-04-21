@@ -12,6 +12,7 @@ getwd()
 library(dplyr)
 library(tidyr)
 library(tidyverse)
+library(lubridate)
 
 USGS_ElwhaDischarge_1<-read.csv("./Raw/USGS_ElwhaDischarge_raw.csv")
 ```
@@ -39,6 +40,29 @@ colnames(USGS_ElwhaDischarge_2)<- c("Date","DailyDischarge","DailySSC", "DailySu
 ```{r Saving new file for analysis}
 
 write.csv(USGS_ElwhaDischarge_2, row.names = FALSE, file = ("./Processed/USGS_ElwhaRiver_processed.csv"))
+
+```
+
+```{r Water Discharge Data}
+#USGS_ElwhaWaterDischarge<-read.csv("./Raw/USGS_ElwhaWaterDischarge_raw.csv")
+
+#USGS_ElwhaWaterDischarge = USGS_ElwhaWaterDischarge[-1,]
+#USGS_ElwhaWaterDischarge<- select(USGS_ElwhaWaterDischarge, year_nu:mean_va)
+
+#class(USGS_ElwhaWaterDischarge$year_nu)
+#class(USGS_ElwhaWaterDischarge$month_nu)
+
+
+#USGS_ElwhaWaterDischarge$year_nu<-as.character(USGS_ElwhaWaterDischarge$year_nu)
+#USGS_ElwhaWaterDischarge$month_nu<-as.character(USGS_ElwhaWaterDischarge$month_nu)
+
+
+
+
+#USGS_ElwhaWaterDischarge<-USGS_ElwhaWaterDischarge[
+  #with(USGS_ElwhaWaterDischarge, order(year_nu, month_nu)),]
+
+
 
 ```
 
