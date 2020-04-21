@@ -37,23 +37,25 @@ theme_set(mytheme)
 ```{r Useful Visualization}
 
 #lines to describe what is happening
-d=data.frame(date=as.Date(c("2011-09-15", "2012-03-17", "2014-08-26")), event=c("Dam Removal Starts", "Glines Canyon Dam Removed", "Elwha Dam Removed"))
+d=data.frame(date=as.Date(c("2011-09-15", "2014-08-26")), event=c("Dam Removal Project Begins", "Dam Removal Project Complete"))
 
 
 
 ggplot(USGS_ElwhaRiverDischarge)+
-  geom_line(aes(x = Date, y = DailyDischarge), size=.3) +
+  geom_line(aes(x = Date, y = DailyDischarge), size=.4) +
 geom_vline(data=d, mapping=aes(xintercept=date), color="skyblue4", lty=5, size=.5)+
   geom_hline(yintercept = 47.7, lty=3, color="sienna3", size=.7)+
   geom_text(data=d, mapping=aes
-            (x=date, y=250, label=event), 
-            size=3, angle=90, vjust=-0.4, hjust=0, color= "skyblue4", fontface="bold")+
-  geom_text(x= as.Date("2016-03-01"), y=25, size = 3, label= "Mean Daily Discharge", color= "sienna3", vjust=-0.4, hjust=0, fontface="bold")+
+            (x=date, y=240, label=event), 
+            size=3.5, angle=90, vjust=-0.4, hjust=0, color= "skyblue4", fontface="bold")+
+  geom_text(x= as.Date("2016-02-01"), y=25, size = 3.5, label= "Mean Daily Discharge", color= "sienna3", vjust=-0.4, hjust=0, fontface="bold")+
   mytheme+
   ylab(expression(Daily~Discharge~(m^2/s)))+
   xlab("Date")+
   theme(axis.title.y = element_text(size = rel(.75), angle = 90))+
   theme(axis.title.x = element_text(size= rel(.75)))
+  
+#labs(tag ="Figure 1. Daily water discharge (m^2/s) from the Elwha River from September 15, 2011 to September 30, 2016 measured at the U.S. Geological Survey gaging station 12046260 at the diversion near Port Angeles, Washington. A project to remove the Elwha and Glines Canyon Dam began on September 15, 2011, and was completed on August 26, 2014. Mean Daily discharge across the whole time range was 47.7.")
 
 
 
