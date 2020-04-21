@@ -106,6 +106,9 @@ Project year| Year of sampling project, extending from 1-5 years|character|year
 
 
 **USGS_ElwhaRiver_processed.csv**
+
+Column name | Data Description | Class | Associated Units
+--------|-----|--------|-------
 Date|Date of daily recording|Date|
 DailyDischarge|Daily water discharge from the river|numeric| m3/s
 DailySSC | Daily suspended sediment concentration| numeric| mg/L
