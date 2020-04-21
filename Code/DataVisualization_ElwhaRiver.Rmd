@@ -61,6 +61,7 @@ geom_vline(data=d, mapping=aes(xintercept=date), color="skyblue4", lty=5, size=.
 #good as is but doesn't have superscript in the caption
 
 
+  ggsave("./Output/ElwhaDailyDischarge_plot.jpg", plot=myplot, width =10, height=6, units="in", dpi=300)
 
 ```
 
