@@ -82,7 +82,7 @@ Files are named according to the following naming convention: `databasename_data
 
 ## Metadata
 
-*USGS_ElwhaDischarge_raw.csv*
+**USGS_ElwhaDischarge_raw.csv**
 
 Column name | Data Description | Class | Associated Units
 --------|-----|--------|-------
@@ -104,6 +104,16 @@ Total sediment discharge (tonnes)|Total daily sediment discharge|numeric|tonnes
 Release period|Stage of dam removal|character|
 Project year| Year of sampling project, extending from 1-5 years|character|year
 
+
+**USGS_ElwhaRiver_processed.csv**
+Date|Date of daily recording|Date|
+DailyDischarge|Daily water discharge from the river|numeric| m3/s
+DailySSC | Daily suspended sediment concentration| numeric| mg/L
+DailySuspendedSediment| Daily total suspended sediment load|numeric|tonnes
+DailySSfines|Daily suspended fine grained sediment load |numeric|tonnes
+DailySSsand| Daily suspended sand sediment load|numeric|tonnes
+TotalSedimentDischarge|Total daily sediment discharge|numeric|tonnes
+Project year| Year of sampling project, extending from 1-5 years|character|year
 
 
 <For each data file in the repository, describe the data contained in each column. Include the column name, a description of the information, the class of data, and any units associated with the data. Create a list or table for each data file.> 
