@@ -50,7 +50,7 @@ geom_vline(data=d, mapping=aes(xintercept=date), color="skyblue4", lty=5, size=.
             size=3, angle=90, vjust=-0.4, hjust=0, color= "skyblue4", fontface="bold")+
   geom_text(x= as.Date("2016-03-01"), y=25, size = 3, label= "Mean Daily Discharge", color= "sienna3", vjust=-0.4, hjust=0, fontface="bold")+
   mytheme+
-  ylab(expression("Daily Discharge (m3/s)"))+
+  ylab(expression(Daily~Discharge~(m^2/s)))+
   xlab("Date")+
   theme(axis.title.y = element_text(size = rel(.75), angle = 90))+
   theme(axis.title.x = element_text(size= rel(.75)))
