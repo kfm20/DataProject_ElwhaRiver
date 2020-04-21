@@ -46,7 +46,7 @@ myplot<-ggplot(USGS_ElwhaRiverDischarge)+
 geom_vline(data=d, mapping=aes(xintercept=date), color="skyblue4", lty=5, size=.5)+
   geom_hline(yintercept = 47.7, lty=3, color="sienna3", size=.7)+
   geom_text(data=d, mapping=aes
-            (x=date, y=240, label=event), 
+            (x=date, y=200, label=event), 
             size=3, angle=90, vjust=-0.4, hjust=0, color= "skyblue4", fontface="bold")+
   geom_text(x= as.Date("2015-11-01"), y=20, size = 3, label= "Mean Daily Discharge", color= "sienna3", vjust=-0.4, hjust=0, fontface="bold")+
   mytheme+
@@ -58,9 +58,31 @@ geom_vline(data=d, mapping=aes(xintercept=date), color="skyblue4", lty=5, size=.
   theme(plot.caption = element_text(hjust = 0) )
   print(myplot)
 
-
+#good as is but doesn't have superscript in the caption
 
 
 
 ```
+
+
+```{r Testing caption}
+
+myplot2<-ggplot(USGS_ElwhaRiverDischarge)+
+  geom_line(aes(x = Date, y = DailyDischarge), size=.4) +
+geom_vline(data=d, mapping=aes(xintercept=date), color="skyblue4", lty=5, size=.5)+
+  geom_hline(yintercept = 47.7, lty=3, color="sienna3", size=.7)+
+  geom_text(data=d, mapping=aes
+            (x=date, y=200, label=event), 
+            size=3, angle=90, vjust=-0.4, hjust=0, color= "skyblue4", fontface="bold")+
+  geom_text(x= as.Date("2015-11-01"), y=20, size = 3, label= "Mean Daily Discharge", color= "sienna3", vjust=-0.4, hjust=0, fontface="bold")+
+  mytheme+
+  ylab(expression(Daily~Discharge~(m^2/s)))+
+  xlab("Date")+
+  theme(axis.title.y = element_text(size = rel(.75), angle = 90))+
+  theme(axis.title.x = element_text(size= rel(.75)))+
+  labs(caption =expression(paste("Figure 1. Daily water discharge", (m^2/s), "from the Elwha River from September 15, 2011 to September 30, 2016 measured at the \nU.S. Geological Survey gaging station 12046260 at the diversion near Port Angeles, Washington. A project to remove \nthe Elwha and Glines Canyon Dam began on September 15, 2011, and was completed on August 26, 2014. Mean Daily \ndischarge across the whole time range was 47.7.")))+
+  theme(plot.caption = element_text(hjust = 0) )
+  print(myplot2)
+```
+
 
