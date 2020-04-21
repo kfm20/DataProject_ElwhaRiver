@@ -82,7 +82,7 @@ Files are named according to the following naming convention: `databasename_data
 
 ## Metadata
 
-*USGS_ElwhaDischarge_raw.csv
+*USGS_ElwhaDischarge_raw.csv*
 
 Column name | Data Description | Class | Associated Units
 --------|-----|--------|-------
@@ -95,7 +95,7 @@ Ave fraction fines (based on two turbidimeters)| Average fraction of fine graine
 Daily Suspended sediment loads (tonnes)| Daily total suspended sediment load|numeric|tonnes
 Daily SS loads of fines (tonnes)|Daily suspended fine grained sediment load |numeric|tonnes
 Daily SS loads of sand (tonnes)| Daily suspended sand sediment load|numeric|tonnes
-Remarks|general notes added|character|
+Remarks|General notes added|character|
 Daily total gauged >2 mm bedload (tonnes)|Gauged bedload for particles greater than 2mm|numeric|tonnes
 Daily total gauged >2-16 mm particles (tonnes)|Gauged bedload for particles between 2-16 mm|numeric|tonnes
 Daily total gauged >16 mm particles (tonnes)|Gauged bedload for particles > 16 mm|numeric|tonnes
@@ -103,6 +103,8 @@ Estimated daily ungauged bedload (tonnes)|Estimated bedload for particles <2mm |
 Total sediment discharge (tonnes)|Total daily sediment discharge|numeric|tonnes
 Release period|Stage of dam removal|character|
 Project year| Year of sampling project, extending from 1-5 years|character|year
+
+
 
 <For each data file in the repository, describe the data contained in each column. Include the column name, a description of the information, the class of data, and any units associated with the data. Create a list or table for each data file.> 
 
