@@ -5,9 +5,9 @@ output:
     fig_caption: yes
     number_sections: yes
 geometry: margin=2.54cm
-title: "Insert title of project here"
-subtitle: "Web address for GitHub repository"
-author: "Name"
+title: "Changes on the Elwha River During Dam Removal"
+subtitle: "https://github.com/kfm20/DataProject_ElwhaRiver.git"
+author: "Kathleen Mason"
 fontsize: 12pt
 mainfont: Times New Roman
 editor_options: 
