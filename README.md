@@ -110,7 +110,7 @@ Project year| Year of sampling project, extending from 1-5 years|character|year
 Column name | Data Description | Class | Associated Units
 --------|-----|--------|-------
 Date|Date of daily recording|Date|YYYY-MM-DD
-DailyDischarge|Daily water discharge from the river|numeric| m ^3^ /s
+DailyDischarge|Daily water discharge from the river|numeric| m3/s
 DailySSC | Daily suspended sediment concentration| numeric| mg/L
 DailySuspendedSediment| Daily total suspended sediment load|numeric|tonnes
 DailySSfines|Daily suspended fine grained sediment load |numeric|tonnes
@@ -123,13 +123,31 @@ Project year| Year of sampling project, extending from 1-5 years|character|year
 
 ## Scripts and code
 
-<list any software scripts/code contained in the repository and a description of their purpose.>
+**DataWrangling.Rmd**
+
+This includes the steps required to create a tidy dataset with the variables most necessary for the analysis, in their own columns, and observations in their own cells, with no blank cells. These steps are essential for proper analysis and visualization to be performed. Class of columns are specified, and column headers edited. 
+
+**DataExploration.Rmd**
+
+Exploration of the dataset to see if there are any outliers, missing data, or out of range data. I test out multiple plots to see what data is the best displayed, and what sort of analyses are necessary moving forward. Initial visualizations are performed to find trends, outliers, and potential relationships. Edited datasets are saved as processed files.
+
+**DataVisualization.Rmd**
+
+Lineplots are created to show trends of parameters over time. Research into the dam removal process on the Elwha River provides dates to show time stamps, which are fitted into the plots. The sampling began at the start of the dam removal process, and one dam was removed in year 2 of sampling. The dam removal process on the Elwha River finished in year 4 of sampling, and data continued to be collected for 2 more years following. Trends most interesting that are analyzed include water discharge compared with total sediment discharge and daily suspoended sediment. Daily suspended solids of fine particles and sand are also compared too see the make up of the sand flowing downstream. 
+
 
 ## Quality assurance/quality control
 
-<describe any relevant QA/QC procedures taken with your data. Some ideas can be found here:>
-<https://www.dataone.org/best-practices/develop-quality-assurance-and-quality-control-plan>
-<https://www.dataone.org/best-practices/ensure-basic-quality-control>
-<https://www.dataone.org/best-practices/communicate-data-quality>
-<https://www.dataone.org/best-practices/identify-outliers>
-<https://www.dataone.org/best-practices/identify-values-are-estimated>
+*Sampling occured under the U.S Geological Survey, a prestigious agency with years of expertise in these fields, which make the protocols for sampling credible.
+
+*All values are checked to see if they are within an expected range of data.
+
+*Remarks, or notes, are made on data points that may have followed a different protocol. Some data points are marked with "estimated."
+
+*Boxplots and visualization techniques are used to discover any outliers within data, and these are flagged accordingly. 
+
+*Data wrangling, exploration, and visualization steps within R are properly annotated for reproducible analysis.
+
+*Naming conventions are used for reproducible files and datasets. 
+
+ 
