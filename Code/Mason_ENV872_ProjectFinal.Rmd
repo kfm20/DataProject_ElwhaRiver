@@ -58,43 +58,66 @@ USGS_ElwhaRiverDischarge<-read.csv("./Processed/USGS_ElwhaRiver_processed.csv")
 
 # Exploratory Analysis 
 
+An initial exploratory analysis is conducted to see general trends in data related to water and sediment discharge, and suspended concentrations in Elwha River during and after the dam removal process. Daily water discharge from the river, *Figure 1*, appears to have higher peaks of discharge in 2015 and 2016, the years after the dam removal project was complete. Embedding the dates involved with the dam removal process, such as start of removal, and completion of each dam removal will help differentiate differences in discharge related to more open flows with dams removed. This data might need to be looked at a different scale, instead of daily, maybe monthly averages will show a different relationship, or a similar one at a different magnitude. 
 
-```{r Exploratory Analysis Figures (5)}
+```{r Exploratory Analysis Figure 1, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Daily water discharge of the Elwha River, WA, from September 15, 2011 to September 30, 2016. Data is sourced from USGS."}
 #1 Daily Discharge/time
 ggplot(USGS_ElwhaRiverDischarge) +
   geom_point(aes(x = Date, y = DailyDischarge), size=1.25, color="skyblue4")+
   ylab(expression(Daily~Discharge~(m^2/s)))+
   mytheme
-  
+```
 
-#2 DAily SSfine/time
+```{r Exploratory Analysis Figure 2, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Daily suspended sediment in the Elwha River, WA, from September 15, 2011 to September 30, 2016. Data is sourced from USGS."}
+#2 Daily Suspended Sediment/time
+ggplot(USGS_ElwhaRiverDischarge) +
+  geom_point(aes(x = Date, y = DailySuspendedSediment), size=1, color="slateblue")+
+  ylab("Daily Suspended Sediment (tonnes)")+
+  mytheme
+
+```
+
+
+```{r Exploratory Analysis Figure 2, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Daily suspended sediment of fine-grained particles in the Elwha River, WA, from September 15, 2011 to September 30, 2016. Data is sourced from USGS."}
+#3 DAily SSfine/time
 ggplot(USGS_ElwhaRiverDischarge) +
   geom_point(aes(x = Date, y = DailySSfines), size=1, color="slateblue")+
   ylab("Daily Suspended Fine-Grained Sediment (tonnes)")+
   mytheme
+```
 
-#3 Daily SSsand/time
+
+```{r Exploratory Analysis Figure 3, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Daily suspended sediment of sand particles in the Elwha River, WA, from September 15, 2011 to September 30, 2016. Data is sourced from USGS."}
+#4 Daily SSsand/time
 ggplot(USGS_ElwhaRiverDischarge) +
   geom_point(aes(x = Date, y = DailySSsand), size=1, color="gray20")+
   ylab("Daily Suspended Sand Sediment (tonnes)")+
   mytheme
+```
 
 
-#4 SSsand and SSfine
+```{r Exploratory Analysis Figure 4, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Daily suspended sediment of fine-grained particles (blue)  and sand particles (gray) in the Elwha River, WA, from September 15, 2011 to September 30, 2016. Data is sourced from USGS."}
+#5 SSsand and SSfine
 ggplot(USGS_ElwhaRiverDischarge) +
   geom_point(aes(x = Date, y = DailySSfines), size=1, color="royalblue", alpha=0.25)+
   geom_point(aes(x = Date, y = DailySSsand), size=1, color="gray20", alpha=0.25)+
   ylab("Daily Suspended Sediment(tonnes)")+
   mytheme
+```
 
-#4 Total sediment discharge/time
+Suspended sediment concentrations might give a sense of the velocity of the flow heading downstream, and how much sand was stuck behind the dams that is then in movement after their removal. Looking at suspended concentrations over time may show how long it takes for the sediment behind the dam to resettle in the river, allowing the river to reach a new morphological norm. General trends of suspended sediments, *Figure 2*, show more tonnes happening around the year 2013, which is during the removal of the Elwha Dam, and the Glines Canyon Dam had already been removed. However, there still exists some high recordings of suspended sediment later on through the project years. However, these might have to do with the high water discharge. Further analysis will compare the relationship between daily suspended sediment and water discharge over time. The dataset also has daily suspended sediment of fine-grained particles, and sand particles. Their general point plots are shown individually, *Figures 3 and 4* and together in one plot, *Figure 5*, where we see there doesn't appear to be much difference between the makeup of the suspended sediment, although a further test can prove this. 
+
+```{r Exploratory Analysis Figure 5, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Daily total sediment discharge from the Elwha River, WA, from September 15, 2011 to September 30, 2016. Data is sourced from USGS."}
+#6 Total sediment discharge/time
 ggplot(USGS_ElwhaRiverDischarge) +
   geom_line(aes(x = Date, y = TotalSedimentDischarge), size=.5, color="royalblue")+
   ylab("Total Sediment Discharge (tonnes)")+
   mytheme
+```
 
 
-#5 daily discharge (water)/total sediment discharge
+```{r Exploratory Analysis Figure 6, echo=FALSE, message=FALSE, warning=FALSE, fig.cap= "Daily total sediment discharge compared to water discharge on the Elwha River from September 15, 2011 to September 30, 2016. A linear model is included to show a linear relationship between sediemnt and water discahrge. Data is sourced from USGS."}
+#7 daily discharge (water)/total sediment discharge
 
 ggplot(USGS_ElwhaRiverDischarge, aes(DailyDischarge, TotalSedimentDischarge)) +
   geom_smooth(method='lm', formula=y~x, color="gray20")+
@@ -105,6 +128,12 @@ ggplot(USGS_ElwhaRiverDischarge, aes(DailyDischarge, TotalSedimentDischarge)) +
   xlim(0, NA)+
   mytheme
 ```
+
+While there are multiple parameters highlighting the sediment traveling downstream, daily sediment discharge is a straight forward parameter of moving sediment in the Elwha River during and after the dam removal processes. From a general line plot of total sediment discharge over time, *Figure 6*, shows a peak discharge in 2013 and multiple large peaks as well as what appears like a larger avergae sediment discharge happening after 2014. These seem to make sense with the time stamps of the dam removal process, but combining the time stamps and this relationship in one graph will help better visualize the relationship with dam removal over time. Calculations of yearly averages of total sediment discharge will also be useful to determine if they are increasing from 2012 to 2016 like they appear to be in this figure. 
+
+With daily water discharge and total sediment discharge being important parameters for showing changes in the Elwha River following dam removal, the relationship between them was graphed with a linear model to show a relationship. It makes sense that increased flow would generate increased sediment discharge, which we see from the positive linear relationship. It would be interesting to see this relationship graphed out for each individual year and see how this relationship might change. 
+
+
 
 \newpage
 
