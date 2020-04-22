@@ -11,7 +11,7 @@ author: "Kathleen Mason"
 fontsize: 12pt
 mainfont: Times New Roman
 fig_width: 5
-fig_height: 4
+fig_height: 2.5
 editor_options: 
   chunk_output_type: console
 ---
