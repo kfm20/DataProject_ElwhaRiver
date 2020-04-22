@@ -110,7 +110,7 @@ Project year| Year of sampling project, extending from 1-5 years|character|year
 Column name | Data Description | Class | Associated Units
 --------|-----|--------|-------
 Date|Date of daily recording|Date|YYYY-MM-DD
-DailyDischarge|Daily water discharge from the river|numeric| m^3^/s
+DailyDischarge|Daily water discharge from the river|numeric| m ^3^ /s
 DailySSC | Daily suspended sediment concentration| numeric| mg/L
 DailySuspendedSediment| Daily total suspended sediment load|numeric|tonnes
 DailySSfines|Daily suspended fine grained sediment load |numeric|tonnes
