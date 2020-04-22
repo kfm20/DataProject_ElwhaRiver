@@ -1,0 +1,131 @@
+---
+output: 
+  pdf_document:
+    keep_tex: yes
+    fig_caption: yes
+    number_sections: yes
+geometry: margin=2.54cm
+title: "Insert title of project here"
+subtitle: "Web address for GitHub repository"
+author: "Name"
+fontsize: 12pt
+mainfont: Times New Roman
+editor_options: 
+  chunk_output_type: console
+---
+
+\newpage
+\tableofcontents 
+\newpage
+\listoftables 
+\newpage
+\listoffigures 
+\newpage
+
+```{r setup, include=FALSE}
+# Set your working directory
+setwd("/Users/kathleenmason/Documents/DUKE/Data Analytics/ElwhaRiver/DataProject_ElwhaRiver")
+getwd()
+
+# Load your packages
+library(tidyverse)
+library(viridis)
+library(ggplot2)
+
+# Set your ggplot theme
+mytheme <- theme_light(base_size = 14) +
+  theme(axis.text = element_text(color = "black"), 
+        legend.position = "top")
+theme_set(mytheme)
+
+# Load your datasets
+USGS_ElwhaRiverDischarge<-read.csv("./Processed/USGS_ElwhaRiver_processed.csv")
+
+```
+
+
+# Rationale and Research Questions
+
+
+
+\newpage
+
+# Dataset Information
+
+
+
+\newpage
+
+# Exploratory Analysis 
+
+
+```{r Exploratory Analysis Figures (5)}
+#1 Daily Discharge/time
+ggplot(USGS_ElwhaRiverDischarge) +
+  geom_point(aes(x = Date, y = DailyDischarge), size=1.25, color="skyblue4")+
+  ylab(expression(Daily~Discharge~(m^2/s)))+
+  mytheme
+  
+
+#2 DAily SSfine/time
+ggplot(USGS_ElwhaRiverDischarge) +
+  geom_point(aes(x = Date, y = DailySSfines), size=1, color="slateblue")+
+  ylab("Daily Suspended Fine-Grained Sediment (tonnes)")+
+  mytheme
+
+#3 Daily SSsand/time
+ggplot(USGS_ElwhaRiverDischarge) +
+  geom_point(aes(x = Date, y = DailySSsand), size=1, color="gray20")+
+  ylab("Daily Suspended Sand Sediment (tonnes)")+
+  mytheme
+
+
+#4 SSsand and SSfine
+ggplot(USGS_ElwhaRiverDischarge) +
+  geom_point(aes(x = Date, y = DailySSfines), size=1, color="royalblue", alpha=0.25)+
+  geom_point(aes(x = Date, y = DailySSsand), size=1, color="gray20", alpha=0.25)+
+  ylab("Daily Suspended Sediment(tonnes)")+
+  mytheme
+
+#4 Total sediment discharge/time
+ggplot(USGS_ElwhaRiverDischarge) +
+  geom_line(aes(x = Date, y = TotalSedimentDischarge), size=.5, color="royalblue")+
+  ylab("Total Sediment Discharge (tonnes)")+
+  mytheme
+
+
+#5 daily discharge (water)/total sediment discharge
+
+ggplot(USGS_ElwhaRiverDischarge, aes(DailyDischarge, TotalSedimentDischarge)) +
+  geom_smooth(method='lm', formula=y~x, color="gray20")+
+  geom_point(color="slateblue", size=1, alpha=0.5)+
+  ylab("Total Sediment Discharge (tonnes)")+
+  xlab(expression(Daily~Discharge~(m^2/s)))+
+  ylim(0,NA)+
+  xlim(0, NA)+
+  mytheme
+```
+
+\newpage
+
+
+# Analysis
+
+
+
+## Question 1: <insert specific question here and add additional subsections for additional questions below, if needed>
+
+## Question 2: 
+
+
+
+
+\newpage
+
+# Summary and Conclusions
+
+
+\newpage
+
+# References
+<add references here if relevant, otherwise delete this section> 
