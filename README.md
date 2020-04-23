@@ -1,4 +1,8 @@
 # DataProject_ElwhaRiver
+
+**Changes on the Elwha River During Dam Removal**
+
+
 Environmental Data Analytics Course Project Focused on the Elwha River
 
 
