@@ -63,8 +63,49 @@ geom_vline(data=d, mapping=aes(xintercept=date), color="skyblue4", lty=5, size=.
 
 
   ggsave("./Output/USGS_ElwhaDailyDischarge_plot.jpg", plot=myplot, width =10, height=6, units="in", dpi=300)
+  
+  #Now for total sediment dischagre
+  d=data.frame(date=as.Date(c("2011-09-15", "2014-08-26")), event=c("Dam Removal Project Begins", "Dam Removal Project Complete"))
 
+
+
+myplot<-ggplot(USGS_ElwhaRiverDischarge)+
+  geom_line(aes(x = Date, y = TotalSedimentDischarge), size=.4) +
+geom_vline(data=d, mapping=aes(xintercept=date), color="skyblue4", lty=5, size=.5)+
+  geom_hline(yintercept = 9886.876, lty=3, color="sienna3", size=.7)+
+  geom_text(data=d, mapping=aes
+            (x=date, y=100000, label=event), 
+            size=2, angle=90, vjust=-0.4, hjust=0, color= "skyblue4", fontface="bold")+
+  geom_text(x= as.Date("2016-05-01"), y=20, size = 2, label= "Mean Total \nSediment \nDischarge", color= "sienna3", vjust=-0.4, hjust=0, fontface="bold")+
+  mytheme+
+  ylab(expression("Total Daily Sediment Discharge (tonnes)")+
+  xlab("Date")+
+  theme(axis.title.y = element_text(size = rel(.75), angle = 90))+
+  theme(axis.title.x = element_text(size= rel(.75)))
+  print(myplot)
+
+  #fig captions=Daily total sediment discharge from the Elwha River from September 15, 2011 to September 30, 2016 measured at the U.S. Geological Survey gaging station 12046260 at the diversion near Port Angeles, Washington. A project to remove the Elwha and Glines Canyon Dam began on September 15, 2011, and was completed on August 26, 2014.Mean Daily sediment discharge across the whole time range was 9886.876 tonnes.
 ```
 
 
+##Analysis
+Question: How does water and sediment discahrge change during and after the dam removal process? >Is sediment discharge different between during and after dam removal? Is water discharge different between during and after dam removal?
+>Need to divide the explanatory value of time into two categories- during dam removal (2011-09-15 to 2014-08-26) and after dam removal (2014-08-27 to 2016-09-30). The response variable is discharge. Analysis will be performed using a two sample ttest. One ttest on total sediment discharge over time, and one on total discharge (water) over time. 
+
+```{r Creating during and post dam removal data}
+USGS_ElwhaDischarge_During <- USGS_ElwhaRiverDischarge %>% filter(Date < as.Date("2014-08-26"))
+
+USGS_ElwhaDischarge_After <- USGS_ElwhaRiverDischarge %>% filter(Date > as.Date("2014-08-26"))
+
+write.csv(USGS_ElwhaDischarge_During, row.names = FALSE, file = ("./Processed/USGS_ElwhaDischarge_During_processed.csv"))
+
+write.csv(USGS_ElwhaDischarge_After, row.names = FALSE, file = ("./Processed/USGS_ElwhaDischarge_After_processed.csv"))
+#Success
+```
+
+```{r Two Way Ttest for Water Discharge}
+
+
+
+```
 

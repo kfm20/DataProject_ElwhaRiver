@@ -157,12 +157,58 @@ With daily water discharge and total sediment discharge being important paramete
 
 
 
-## Question 1: <insert specific question here and add additional subsections for additional questions below, if needed>
+## Question 1: How does water and sediment discharge in the Elwha River differ during and after the two part dam removal process?
 
-## Question 2: 
+A closer look into total sediment discharge and daily discharge of water from the Elwha River with attention on the time stamps of when the dam removal project begings, and when it is completed, *Figures 8 and 9*, prompted an in depth analysis of trends. Data was separated into during the dam removal process and after its completion, September 26, 2014.
+
+```{r Intro to Question (Figure 8), echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Daily water discharge from the Elwha River from September 15, 2011 to September 30, 2016 measured at the U.S. Geological Survey gaging station 12046260 at the diversion near Port Angeles, Washington. A project to remove the Elwha and Glines Canyon Dam began on September 15, 2011, and was completed on August 26, 2014. Mean Daily discharge across the whole time range was 47.7."}
+
+d=data.frame(date=as.Date(c("2011-09-15", "2014-08-26")), event=c("Dam Removal Project Begins", "Dam Removal Project Complete"))
 
 
 
+myplot<-ggplot(USGS_ElwhaRiverDischarge)+
+  geom_line(aes(x = Date, y = DailyDischarge), size=.4) +
+geom_vline(data=d, mapping=aes(xintercept=date), color="skyblue4", lty=5, size=.5)+
+  geom_hline(yintercept = 47.7, lty=3, color="sienna3", size=.7)+
+  geom_text(data=d, mapping=aes
+            (x=date, y=200, label=event), 
+            size=2, angle=90, vjust=-0.4, hjust=0, color= "skyblue4", fontface="bold")+
+  geom_text(x= as.Date("2015-11-01"), y=20, size = 2, label= "Mean Daily Discharge", color= "sienna3", vjust=-0.4, hjust=0, fontface="bold")+
+  mytheme+
+  ylab(expression(Daily~Discharge~(m^2/s)))+
+  xlab("Date")+
+  theme(axis.title.y = element_text(size = rel(.75), angle = 90))+
+  theme(axis.title.x = element_text(size= rel(.75)))
+  print(myplot)
+
+```
+
+```{r Intro to Question (Figure 9), echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Daily total sediment discharge from the Elwha River from September 15, 2011 to September 30, 2016 measured at the U.S. Geological Survey gaging station 12046260 at the diversion near Port Angeles, Washington. A project to remove the Elwha and Glines Canyon Dam began on September 15, 2011, and was completed on August 26, 2014.Mean Daily sediment discharge across the whole time range was 9886.876 tonnes."}
+
+d=data.frame(date=as.Date(c("2011-09-15", "2014-08-26")), event=c("Dam Removal Project Begins", "Dam Removal Project Complete"))
+
+
+
+myplot2<-ggplot(USGS_ElwhaRiverDischarge)+
+  geom_line(aes(x = Date, y = TotalSedimentDischarge), size=.4) +
+geom_vline(data=d, mapping=aes(xintercept=date), color="skyblue4", lty=5, size=.5)+
+  geom_hline(yintercept = 9886.876, lty=3, color="sienna3", size=.7)+
+  geom_text(data=d, mapping=aes
+            (x=date, y=100000, label=event), 
+            size=2, angle=90, vjust=-0.4, hjust=0, color= "skyblue4", fontface="bold")+
+  geom_text(x= as.Date("2016-05-01"), y=20, size = 2, label= "Mean Total \nSediment \nDischarge", color= "sienna3", vjust=-0.4, hjust=0, fontface="bold")+
+  mytheme+
+  ylab("Total Daily Sediment Discharge (tonnes)")+
+  xlab("Date")+
+  theme(axis.title.y = element_text(size = rel(.75), angle = 90))+
+  theme(axis.title.x = element_text(size= rel(.75)))
+  print(myplot2)
+
+```
+
+
+A two sample t-test revealed...
 
 \newpage
 

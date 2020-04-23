@@ -11,7 +11,7 @@ This repository stores relevant data sets, and rmarkdown code for analysis of wa
 
 The dataset begins when the removal project begins, September 15, 2011. The Glines Canyon Dam was removed not long after, and the project officially ended on August 26, 2014, but the data was collected until September 30, 2016. Data was recorded by the USGS gage station with identification number- 12046260, which can be found downstream of the old dams sites at the diversion near Port Angeles, Washington.
 
-An understanding of changes on the Elwha River during and following the dam removal process can be understood from analysis on daily water discharge, and parameters surrounding sediment concentration, bedload, size of sediment, and sediment discharge. Looking at changes of these parameters over time in accordance with the time stamps of the project can help explain how long it takes a river to reach a new stability of discharge and sediment discharge following dam removal. 
+An understanding of changes on the Elwha River during and following the dam removal process can be understood from analysis on daily water discharge, and parameters surrounding sediment concentration, bedload, size of sediment, and sediment discharge. Looking at changes of these parameters over time in accordance with the time stamps of the project can help explain how long it takes a river to reach a new stability of discharge and sediment discharge following dam removal. The in depth analysis will focus on potential changes in water discharge and total sediment discharge during and after the dam removal process.
 
 ##Database Information
 
@@ -134,6 +134,10 @@ Exploration of the dataset to see if there are any outliers, missing data, or ou
 **DataVisualization.Rmd**
 
 Lineplots are created to show trends of parameters over time. Research into the dam removal process on the Elwha River provides dates to show time stamps, which are fitted into the plots. The sampling began at the start of the dam removal process, and one dam was removed in year 2 of sampling. The dam removal process on the Elwha River finished in year 4 of sampling, and data continued to be collected for 2 more years following. Trends most interesting that are analyzed include water discharge compared with total sediment discharge and daily suspoended sediment. Daily suspended solids of fine particles and sand are also compared too see the make up of the sand flowing downstream. 
+
+**Mason_ENV872_ProjectFinal.Rmd**
+
+This includes the final write up for my class report, it includes relevant information about the data set, the perfomred explanatory analysis with figures, research questions and rationale, and results represented throught a writeup and visualizations. This same file is also stored as a .tex, .log, and .pdf.
 
 
 ## Quality assurance/quality control
