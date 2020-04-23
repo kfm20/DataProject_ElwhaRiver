@@ -97,15 +97,17 @@ USGS_ElwhaDischarge_During <- USGS_ElwhaRiverDischarge %>% filter(Date < as.Date
 
 USGS_ElwhaDischarge_After <- USGS_ElwhaRiverDischarge %>% filter(Date > as.Date("2014-08-26"))
 
-write.csv(USGS_ElwhaDischarge_During, row.names = FALSE, file = ("./Processed/USGS_ElwhaDischarge_During_processed.csv"))
+#Add "after" and "during" columns
+USGS_ElwhaDischarge_After$TimeStamp<-"After"
+USGS_ElwhaDischarge_During$TimeStamp<-"During"
 
-write.csv(USGS_ElwhaDischarge_After, row.names = FALSE, file = ("./Processed/USGS_ElwhaDischarge_After_processed.csv"))
-#Success
+
 ```
 
 ```{r Two Way Ttest for Water Discharge}
+shapiro.test(EPAair$Ozone[EPAair$Year == 2018])
 
-
+shapiro.test(EPAair$Ozone[EPAair$Year == 2019])
 
 ```
 

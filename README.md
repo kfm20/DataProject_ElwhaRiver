@@ -116,10 +116,9 @@ TotalSedimentDischarge|Total daily sediment discharge|numeric|tonnes
 Project year| Year of sampling project, extending from 1-5 years|character|year
 
 
-**USGS_ElwhaDischarge_After_processed.csv**
-**USGS_ElwhaDischarge_During_processed.csv**
+**USGS_ElwhaRiverDischarge_TimeStamped_processed.csv**
 
-These have the same parameters as the above datasets but their date ranges are different. The "during" data set corresponds with the data following dates during the dam removal process, all dates from September 15, 2011 to August 26, 2014. The "after"" data set corresponds with data following dates after the dam removal process was complete, August 27, 2014 to September 30, 2016. 
+This have the same parameters as the above datasets but it has an additional column labeled "TimeStamp". This character column distinguishes "during" data that follows dates during the dam removal process, all dates from September 15, 2011 to August 26, 2014. The "after"" data follows dates after the dam removal process was complete, August 27, 2014 to September 30, 2016. 
 
 
 ## Scripts and code
