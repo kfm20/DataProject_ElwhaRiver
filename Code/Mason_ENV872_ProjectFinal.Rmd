@@ -328,6 +328,13 @@ There is a stronger correlation after dam removal completion, making water disch
 
 # Summary and Conclusions
 
+There were significant differences in parameters measured during dam removal and after the projects completion. While daily water discharge appeared similar in their reported means, there was still a significant difference between during and after. After completion, there appears to be more high peaks of flow, *Figures 8 and 10*. This makes sense because there is no longer two dams in place that would have controled flows to have less of high peak flow events. Now without a dam, the Elwha River might experience more of high peak flow events, especially as the form of the river and floodplain readjust. During dam removal processes, the river is can be engineered to a particular flow rate so removal procedures can occur uneffected. 
+
+Water discharge is an effective predictor of sediment discharge. Through analysis this was proven to be true throughout the entirity of the sampling time frame, as well as during the dam removal process and after it's completion. After completion of the project, each unit of water flow accounted for higher amounts of sediment discharge compared to during. Again, this may be due to the higher peak flows adn higher sediment discharge that occured after the project completion. 
+
+Overall, it makes sense that sediment discharge and water discharge reach higher peaks without the dams in place. Not only are the dams not in place to hold back water and sediment, but now after it's removal, everything that was behind the dam is released. Two years of data does not seem to be enough time to see graphically a new stability of water flow and sediment discharge. More years of data may be useful to see the Elwha River reach a new mean daily norm of these discharge parameters following dam removal.
+
+Lastly, alot can be learned from the steady increase of both  peak sediment and water discharge in the early stages of the removal process. Specific attention should be given to total daily sediment discharge over time, *Figure 9*, and the drastic changes in peaks since the start of dam removal. With 30 million tons of sediment recorded to be held behind the dams, from this figure the release of it is graphically displayed. This load of sediment will have ecological impacts on species, and the formation of floodplains and the delta the Elwha Rier drains into.
 
 >>Summarize your major findings from your analyses in a few paragraphs. What conclusions do you draw from your findings? Relate your findings back to the original research questions and rationale.
 
