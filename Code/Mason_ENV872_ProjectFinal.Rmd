@@ -210,6 +210,26 @@ geom_vline(data=d, mapping=aes(xintercept=date), color="skyblue4", lty=5, size=.
 
 A two sample t-test revealed...
 
+```{r Two Way T-Test REsults Total Water Discharge(Figure 10), echo=FALSE, message=FALSE, warning=FALSE, fig.cap="x"}
+
+ggplot(USGS_ElwhaRiverDischarge_TimeStamp) +
+geom_boxplot(aes(x = TimeStamp, y = DailyDischarge), color="skyblue4", alpha=0.75)+
+  xlab("Timeframe in the Dam \nRemoval Process")+
+   ylab(expression(Daily~Discharge~(m^2/s)))
+  mytheme
+
+```
+
+
+```{r Two Way T-Test REsults  Total sediment discharge(Figure 11), echo=FALSE, message=FALSE, warning=FALSE, fig.cap="x"}
+ggplot(USGS_ElwhaRiverDischarge_TimeStamp) +
+geom_boxplot(aes(x = TimeStamp, y = TotalSedimentDischarge), color="skyblue4", alpha=0.75)+
+  xlab("Timeframe in the Dam Removal Process")+
+  ylab("Total Daily Sediment \nDischarge (tonnes)")+
+  mytheme
+```
+
+
 \newpage
 
 # Summary and Conclusions

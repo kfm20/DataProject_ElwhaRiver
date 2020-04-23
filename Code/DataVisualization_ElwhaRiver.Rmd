@@ -199,3 +199,24 @@ SedimentDischarge.twosample.wilcox
 #Interpretation significant difference in daily total sediment discharge during and after the dam removal process(p value<0.0001, Wilcoxon test)
 ```
 
+```{r Boxplot creation }
+ggplot(USGS_ElwhaRiverDischarge_TimeStamp) +
+geom_boxplot(aes(x = TimeStamp, y = TotalSedimentDischarge), color="skyblue4", alpha=0.75)+
+  xlab("Timeframe in the Dam \nRemoval Process")+
+  ylab("Total Daily Sediment \nDischarge (tonnes)")+
+  mytheme
+#summary stats
+tapply(USGS_ElwhaRiverDischarge_TimeStamp$TotalSedimentDischarge, USGS_ElwhaRiverDischarge_TimeStamp$TimeStamp, summary)
+
+
+
+
+ggplot(USGS_ElwhaRiverDischarge_TimeStamp) +
+geom_boxplot(aes(x = TimeStamp, y = DailyDischarge), color="skyblue4", alpha=0.75)+
+  xlab("Timeframe in the Dam \nRemoval Process")+
+   ylab(expression(Daily~Discharge~(m^2/s)))
+  mytheme
+#summary stats
+tapply(USGS_ElwhaRiverDischarge_TimeStamp$DailyDischarge, USGS_ElwhaRiverDischarge_TimeStamp$TimeStamp, summary)
+```
+
