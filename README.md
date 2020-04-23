@@ -10,7 +10,7 @@ The dataset begins when the removal project begins, September 15, 2011. The Glin
 
 An understanding of changes on the Elwha River during and following the dam removal process can be understood from analysis on daily water discharge, and parameters surrounding sediment concentration, bedload, size of sediment, and sediment discharge. Looking at changes of these parameters over time in accordance with the time stamps of the project can help explain how long it takes a river to reach a new stability of discharge and sediment discharge following dam removal. The in depth analysis will focus on potential changes in water discharge and total sediment discharge during and after the dam removal process.
 
-##Database Information
+## Database Information
 
 Data was collected daily at the USGS gaging station with identification number 12046260, located on the Elwha River at the diversion near Port Angeles, Washington. Data was published February 7, 2020 and accessed April 20, 2020. The date range of the data is 2011-09-15 to 2016-09-30. The dataset is part of a larger study that created a 5 year sediment budget and morphodynamic analysis of the Elwha River following the two dam removals.
 
@@ -24,6 +24,8 @@ Analysis was performed by a graduate student at the Nicholas School of the Envir
 Dataset Source: Data in support of 5-year sediment budget and morphodynamic analysis of Elwha River following dam removals, Daily sediment loads during and after dam removal in the Elwha River, Washington, 2011 to 2016, U.S. Geological Survey
 
 <https://doi.org/10.5066/F7PG1QWC>
+
+
 
 *Contributers: Ritchie, A.C., Curran, C.A., Magirl, C.S., Bountry, J.A., Hilldale, R.C., Randle, T.J., and Duda, J.J.
 
@@ -51,6 +53,7 @@ Elwha River, Elwha Dam, Glines Canyon Dam, Port Angeles, Washington, dam removal
 
 
 ## Folder structure, file formats, and naming conventions 
+
 **Folder Structure:**
 *Code-R markdown code for data wrangling, data exploration/analysis, and data visualization
 
