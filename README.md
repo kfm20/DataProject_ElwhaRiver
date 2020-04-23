@@ -2,9 +2,6 @@
 Environmental Data Analytics Course Project Focused on the Elwha River
 
 
-<More resources found here: https://www.dataone.org/all-best-practices>
-<Delete the text inside the brackets when formatting your file.>
-
 ## Summary
 
 This repository stores relevant data sets, and rmarkdown code for analysis of water discharge and sediment loads on the Elwha River. Analysis focuses on the time frame during and after the removal of Glines Canyon Dam and the Elwha Dam, both on the Elwha River, Washington. 
@@ -119,7 +116,11 @@ TotalSedimentDischarge|Total daily sediment discharge|numeric|tonnes
 Project year| Year of sampling project, extending from 1-5 years|character|year
 
 
-<For each data file in the repository, describe the data contained in each column. Include the column name, a description of the information, the class of data, and any units associated with the data. Create a list or table for each data file.> 
+**USGS_ElwhaDischarge_After_processed.csv**
+**USGS_ElwhaDischarge_During_processed.csv**
+
+These have the same parameters as the above datasets but their date ranges are different. The "during" data set corresponds with the data following dates during the dam removal process, all dates from September 15, 2011 to August 26, 2014. The "after"" data set corresponds with data following dates after the dam removal process was complete, August 27, 2014 to September 30, 2016. 
+
 
 ## Scripts and code
 
