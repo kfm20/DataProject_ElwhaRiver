@@ -19,8 +19,6 @@ editor_options:
 \newpage
 \tableofcontents 
 \newpage
-\listoftables 
-\newpage
 \listoffigures 
 \newpage
 
@@ -56,12 +54,34 @@ USGS_ElwhaRiverDischarge_After<-read.csv("./Processed/USGS_ElwhaRiverDischarge_A
 
 # Rationale and Research Questions
 
+>>Write 1-2 paragraph(s) detailing the rationale for your study. This should include both the context of the topic as well as a rationale for your choice of dataset (reason for location, variables, etc.). You may choose to include citations if you like (optional).
+At the end of your rationale, introduce a numbered list of your questions (or an overarching question and sub-questions).
 
 
 \newpage
 
 # Dataset Information
 
+Data was collected daily at the USGS gaging station with identification number 12046260, located on the Elwha River at the diversion near Port Angeles, Washington. Data was published February 7, 2020 by USGS and accessed April 20, 2020. The datea was collected from September 15, 2011 to September 30, 2016. The dataset contains daily measurements and estimates of discharge and various parameters of sediment loads. Sediment load parameters include suspended concentration, loads of suspended fine-grained particles and sand particles, and gauged bedload for particles from 0mm to 16mm. The dataset is part of a larger study that created a 5 year sediment budget and morphodynamic analysis of the Elwha River following the two dam removals. Research into the time frame of the two part dam removal process supplied dates for time stamps and classification of "during" the dam removal process, and "after" completion of the project. Removal of the Glines Canyon Dam began on September 15, 2011, and September 17, 2011 for the Elwha Dam (NPS 2019). The entire project was completed on August 26, 2014 (National Park Trips 2015).Therefore, "during" is classified as September 15, 2011 to August 26, 2014, and "after" is classified as August 27, 104 until the end of sampling, September 30, 2016.
+
+
+
+The dataset, coming from USGS, was already pretty neat, no NAs or unneeded symbols were found. The dataset was simply wrangled for a best fit in order tonperform useful analyses answering the research questions at hand. To wrangle the data, the most important variables for an analysis focused on observing general changes on the Elwha River during and after the dam removal project were selected. Columns were recoded with shorter and more coding friendly names. The next big wrangling task included dividing the data into two new datasets by date, following the "during" and "after" time stamps mentioned. A new column was created with a character class of text, with the appropriate "during," or "after" notation signified by the date time frame. These two individual datasets were saved as new processed files to be used in an analysis question later. They were also combined again, giving a dataset of all the sampling points across the entire 5 year sampling period, just with the new time stamp column. 
+
+\newpage
+
+
+Column name | Data Description | Associated Units
+-----------|-----------------|------
+Date|Date of daily recording|YYYY-MM-DD
+DailyDischarge|Daily water discharge from the river|m3/s
+DailySSC | Daily suspended sediment concentration|mg/L
+DailySuspendedSediment| Daily total suspended sediment load|tonnes
+DailySSfines|Daily suspended fine grained sediment load |tonnes
+DailySSsand| Daily suspended sand sediment load|tonnes
+TotalSedimentDischarge|Total daily sediment discharge|tonnes
+Projectyear| Year of sampling project, extending from 1-5 years|year
+TimeStamp|Distinguishes time frame in the dam removal process| "during" or "after"
 
 
 \newpage
@@ -264,7 +284,7 @@ A linear regression model determines a line of best fit between two continuous v
 
 Data recorded during the dam removal process, and data recorded after were separated. Separate linear regressions were run on each to determine if water discharge is an effective predictor of sediment discharge, and to what extent. 
 
-```{r Linear During (Figure 13), echo=FALSE, message=FALSE, warning=FALSE, fig.cap="x"}
+```{r Linear During (Figure 13), echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Daily water discharge as an indicator for daily total sediment discharge on the Elwha River during the two part dam removal process, with a linear regression."}
 dischargebywaterflow_during <-
 ggplot(USGS_ElwhaRiverDischarge_During, 
        aes(x = DailyDischarge, y = TotalSedimentDischarge)) + 
@@ -276,7 +296,7 @@ print(dischargebywaterflow_during)
 ```
 
 
-```{r Linear After (Figure 14), echo=FALSE, message=FALSE, warning=FALSE, fig.cap="x"}
+```{r Linear After (Figure 14), echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Daily water discharge as an indicator for daily total sediment discharge on the Elwha River after completion of the two part dam removal process, with a linear regression."}
 
 dischargebywaterflow_after <-
 ggplot(USGS_ElwhaRiverDischarge_After, 
@@ -302,7 +322,15 @@ There is a stronger correlation after dam removal completion, making water disch
 # Summary and Conclusions
 
 
+>>Summarize your major findings from your analyses in a few paragraphs. What conclusions do you draw from your findings? Relate your findings back to the original research questions and rationale.
+
 \newpage
 
 # References
-<add references here if relevant, otherwise delete this section> 
+
+
+Ritchie, A.C., Curran, C.A., Magirl, C.S., Bountry, J.A., Hilldale, R.C., Randle, T.J., and Duda, J.J., 2018, Data in support of 5-year sediment budget and morphodynamic analysis of Elwha River following dam removals: U.S. Geological Survey data release, https://doi.org/10.5066/F7PG1QWC.
+
+National Park Service. 2019. Elwha River Restoration: Dam Removal. Olympic National Park Washington, National Park Service, https://nps.gov/olym
+
+National Park Trips. 2015. Saving salmon by demolishing dams on the Elwha River. Olympic National Park Trips, https://myolympicpark.com

@@ -36,6 +36,9 @@
             breaklinks=true}
 \urlstyle{same}  % don't use monospace font for urls
 \usepackage[margin=2.54cm]{geometry}
+\usepackage{longtable,booktabs}
+% Fix footnotes in tables (requires footnote package)
+\IfFileExists{footnote.sty}{\usepackage{footnote}\makesavenoteenv{longtable}}{}
 \usepackage{graphicx,grffile}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
@@ -92,10 +95,136 @@
 \section{Rationale and Research
 Questions}\label{rationale-and-research-questions}}
 
+\begin{quote}
+\begin{quote}
+Write 1-2 paragraph(s) detailing the rationale for your study. This
+should include both the context of the topic as well as a rationale for
+your choice of dataset (reason for location, variables, etc.). You may
+choose to include citations if you like (optional). At the end of your
+rationale, introduce a numbered list of your questions (or an
+overarching question and sub-questions).
+\end{quote}
+\end{quote}
+
 \newpage
 
 \hypertarget{dataset-information}{%
 \section{Dataset Information}\label{dataset-information}}
+
+Data was collected daily at the USGS gaging station with identification
+number 12046260, located on the Elwha River at the diversion near Port
+Angeles, Washington. Data was published February 7, 2020 by USGS and
+accessed April 20, 2020. The datea was collected from September 15, 2011
+to September 30, 2016. The dataset contains daily measurements and
+estimates of discharge and various parameters of sediment loads.
+Sediment load parameters include suspended concentration, loads of
+suspended fine-grained particles and sand particles, and gauged bedload
+for particles from 0mm to 16mm. The dataset is part of a larger study
+that created a 5 year sediment budget and morphodynamic analysis of the
+Elwha River following the two dam removals. Research into the time frame
+of the two part dam removal process supplied dates for time stamps and
+classification of ``during'' the dam removal process, and ``after''
+completion of the project. Removal of the Glines Canyon Dam began on
+September 15, 2011, and September 17, 2011 for the Elwha Dam (NPS 2019).
+The entire project was completed on August 26, 2014 (National Park Trips
+2015).Therefore, ``during'' is classified as September 15, 2011 to
+August 26, 2014, and ``after'' is classified as August 27, 104 until the
+end of sampling, September 30, 2016.
+
+The dataset, coming from USGS, was already pretty neat, no NAs or
+unneeded symbols were found. The dataset was simply wrangled for a best
+fit in order tonperform useful analyses answering the research questions
+at hand. To wrangle the data, the most important variables for an
+analysis focused on observing general changes on the Elwha River during
+and after the dam removal project were selected. Columns were recoded
+with shorter and more coding friendly names. The next big wrangling task
+included dividing the data into two new datasets by date, following the
+``during'' and ``after'' time stamps mentioned. A new column was created
+with a character class of text, with the appropriate ``during,'' or
+``after'' notation signified by the date time frame. These two
+individual datasets were saved as new processed files to be used in an
+analysis question later. They were also combined again, giving a dataset
+of all the sampling points across the entire 5 year sampling period,
+just with the new time stamp column.
+
+\newpage
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule
+\begin{minipage}[b]{0.30\columnwidth}\raggedright
+Column name\strut
+\end{minipage} & \begin{minipage}[b]{0.46\columnwidth}\raggedright
+Data Description\strut
+\end{minipage} & \begin{minipage}[b]{0.16\columnwidth}\raggedright
+Associated Units\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{0.30\columnwidth}\raggedright
+Date\strut
+\end{minipage} & \begin{minipage}[t]{0.46\columnwidth}\raggedright
+Date of daily recording\strut
+\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\raggedright
+YYYY-MM-DD\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.30\columnwidth}\raggedright
+DailyDischarge\strut
+\end{minipage} & \begin{minipage}[t]{0.46\columnwidth}\raggedright
+Daily water discharge from the river\strut
+\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\raggedright
+m3/s\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.30\columnwidth}\raggedright
+DailySSC\strut
+\end{minipage} & \begin{minipage}[t]{0.46\columnwidth}\raggedright
+Daily suspended sediment concentration\strut
+\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\raggedright
+mg/L\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.30\columnwidth}\raggedright
+DailySuspendedSediment\strut
+\end{minipage} & \begin{minipage}[t]{0.46\columnwidth}\raggedright
+Daily total suspended sediment load\strut
+\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\raggedright
+tonnes\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.30\columnwidth}\raggedright
+DailySSfines\strut
+\end{minipage} & \begin{minipage}[t]{0.46\columnwidth}\raggedright
+Daily suspended fine grained sediment load\strut
+\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\raggedright
+tonnes\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.30\columnwidth}\raggedright
+DailySSsand\strut
+\end{minipage} & \begin{minipage}[t]{0.46\columnwidth}\raggedright
+Daily suspended sand sediment load\strut
+\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\raggedright
+tonnes\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.30\columnwidth}\raggedright
+TotalSedimentDischarge\strut
+\end{minipage} & \begin{minipage}[t]{0.46\columnwidth}\raggedright
+Total daily sediment discharge\strut
+\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\raggedright
+tonnes\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.30\columnwidth}\raggedright
+Projectyear\strut
+\end{minipage} & \begin{minipage}[t]{0.46\columnwidth}\raggedright
+Year of sampling project, extending from 1-5 years\strut
+\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\raggedright
+year\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.30\columnwidth}\raggedright
+TimeStamp\strut
+\end{minipage} & \begin{minipage}[t]{0.46\columnwidth}\raggedright
+Distinguishes time frame in the dam removal process\strut
+\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\raggedright
+``during'' or ``after''\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
 
 \newpage
 
@@ -263,12 +392,12 @@ variance as well (p-value \textless{}0.05; Shapiro-Wilk normality test).
 To avoid the assumption or normality, a non-parametric method, Wilcoxon
 rank sum, is used to determine if means are equivalent during and after
 dam removal for both water and sediment dischagre. The mean daily
-discharge during the dam removal process is 48.31 m\^{}2/s, and 46.9
-m\^{}2/s after the completion of the project. There is a significant
-difference between the means of daily water discharge during and after
-dam removal (\emph{Figure 10}, W = 349134, p-value \textless{} 0.0001,
-Wilcoxon rank sum test). The mean daily total sediment discharge during
-the dam removal process is 11,319.0 tonnes, and 7,888.0 tonnes for after
+discharge during the dam removal process is 48.31 m2/s, and 46.9 m2/s
+after the completion of the project. There is a significant difference
+between the means of daily water discharge during and after dam removal
+(\emph{Figure 10}, W = 349134, p-value \textless{} 0.0001, Wilcoxon rank
+sum test). The mean daily total sediment discharge during the dam
+removal process is 11,319.0 tonnes, and 7,888.0 tonnes for after
 completion of dam removal. There is a significant different between the
 means of daily total sediment discharge during and after dam removal
 (\emph{Figure 11}, W = 209858, p-value \textless{}0.0001, Wilcoxon rank
@@ -312,34 +441,96 @@ time on the Elwha.
 discharge on the Elwha River, with a linear regression.}
 \end{figure}
 
-A linear regression revealed\ldots{}
+A linear regression model determines a line of best fit between two
+continuous variables, in this case, daily water discharge and total
+sediment discharge. There is a strong, significant positive correlation
+between water and sediment discharge during the entirity of the sampling
+period (cor= 0.73, p-value \textless{} 0.0001, pearson's correlation
+test). Therefore, water discharge is an effedctive predictor for
+sediment discharge (\emph{Figure 12}, p-value \textless{} 0.0001, R2=
+0.54, linear regression). Each square meter per second of water
+discharge accounted for 0.0008 tonnes of sediment discharge.
 
-\#\#Question 3: Does daily water discharge predict total sediment
-discharge during and after the two part dam removal process?
+\newpage
+
+\hypertarget{question-3-does-daily-water-discharge-predict-total-sediment-discharge-during-and-after-the-two-part-dam-removal-process}{%
+\subsection{Question 3: Does daily water discharge predict total
+sediment discharge during and after the two part dam removal
+process?}\label{question-3-does-daily-water-discharge-predict-total-sediment-discharge-during-and-after-the-two-part-dam-removal-process}}
+
+Data recorded during the dam removal process, and data recorded after
+were separated. Separate linear regressions were run on each to
+determine if water discharge is an effective predictor of sediment
+discharge, and to what extent.
 
 \begin{figure}
 \centering
 \includegraphics{Mason_ENV872_ProjectFinal_files/figure-latex/Linear During (Figure 13)-1.pdf}
-\caption{x}
+\caption{Daily water discharge as an indicator for daily total sediment
+discharge on the Elwha River during the two part dam removal process,
+with a linear regression.}
 \end{figure}
 
 \begin{figure}
 \centering
 \includegraphics{Mason_ENV872_ProjectFinal_files/figure-latex/Linear After (Figure 14)-1.pdf}
-\caption{x}
+\caption{Daily water discharge as an indicator for daily total sediment
+discharge on the Elwha River after completion of the two part dam
+removal process, with a linear regression.}
 \end{figure}
+
+There is a strong, significant positive correlation between water and
+sediment discharge during the dam removal process (cor= 0.70, p-value
+\textless{} 0.0001, pearson's correlation test). During dam removal,
+water discharge is an effedctive predictor for sediment discharge
+(\emph{Figure 13}, p-value \textless{} 0.0001, R2= 0.50, linear
+regression). Each square meter per second of water discharge accounted
+for 0.0007 tonnes of sediment discharge.
+
+After the completion of dam removal, there is still a strong,
+significant positive correlation between water and discharge (cor= 0.77,
+p-value \textless{} 0.0001, pearson's correlation test). Water discharge
+serves as an effective predictor for sediment discharge (\emph{Figure
+14}, p-value \textless{} 0.0001, R2= 0.59, linear regression). Each
+square meter per second of water discharge accounted for 0.0017 tonnes
+of sediment discharge.
+
+There is a stronger correlation after dam removal completion, making
+water discharge a better predictor of sediment discharge after dam
+removal compared to during the process. The model explains accounts for
+a larger percentage of variance by the explanatory variable of water
+discharge.
 
 \newpage
 
 \hypertarget{summary-and-conclusions}{%
 \section{Summary and Conclusions}\label{summary-and-conclusions}}
 
+\begin{quote}
+\begin{quote}
+Summarize your major findings from your analyses in a few paragraphs.
+What conclusions do you draw from your findings? Relate your findings
+back to the original research questions and rationale.
+\end{quote}
+\end{quote}
+
 \newpage
 
 \hypertarget{references}{%
 \section{References}\label{references}}
 
-\textless{}add references here if relevant, otherwise delete this
-section\textgreater{}
+Ritchie, A.C., Curran, C.A., Magirl, C.S., Bountry, J.A., Hilldale,
+R.C., Randle, T.J., and Duda, J.J., 2018, Data in support of 5-year
+sediment budget and morphodynamic analysis of Elwha River following dam
+removals: U.S. Geological Survey data release,
+\url{https://doi.org/10.5066/F7PG1QWC}.
+
+National Park Service. 2019. Elwha River Restoration: Dam Removal.
+Olympic National Park Washington, National Park Service,
+\url{https://nps.gov/olym}
+
+National Park Trips. 2015. Saving salmon by demolishing dams on the
+Elwha River. Olympic National Park Trips,
+\url{https://myolympicpark.com}
 
 \end{document}
