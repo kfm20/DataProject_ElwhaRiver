@@ -54,15 +54,22 @@ USGS_ElwhaRiverDischarge_After<-read.csv("./Processed/USGS_ElwhaRiverDischarge_A
 
 # Rationale and Research Questions
 
->>Write 1-2 paragraph(s) detailing the rationale for your study. This should include both the context of the topic as well as a rationale for your choice of dataset (reason for location, variables, etc.). You may choose to include citations if you like (optional).
-At the end of your rationale, introduce a numbered list of your questions (or an overarching question and sub-questions).
 
+Dams were popping up across America in the early 1900's as ways to control river flows for water usage, and power. However, in the late 1900's and early 2000's dams no longer serve an important role, and cause more harm than good. Whether limiting sediment deposition downstream, increasing algal blooms or evaporation in the reservoirs, or restricting upstream access for fish species, dams are more frequently being removed. Removal of dams can change the form and function of the stream. The Elwha River flowing through Washington state, underwent a two part dam removal process. The Glines Canyon and Elwha Dam were removed by 2014 after a 3 year project. With the Glines Canyon Dam in place for 90 years, 30 million tons of sediment input from the upstream Olympic Mountians had accumulated behind the dam (USGS 2018). With more frequent dam removal projects, it is increasingly important to understand the potential effects dam removal can have on a river ecosysem. While every river will respond differently to dam removal, understanding the effects from the project on the Elwha River can add to a greater understanding and analysis of stream response to dam removal. 
+
+Part of the mission of the U.S. Geological Survey is focused on water resources. They are dedicated to researching and documenting streamflow, and water use and availability. As a credible research agency, the daily sediment loads dataset was collected for the purpose of understanding the changes within flow and sediment occuring during the dam removal process along the Elwha. The dam was collected at a gage station downstream of both dams, which is useful to see the downstream impact of the water and sediment that had been captured behind the dams.This study uses the USGS sediment load dataset to understand the changes occuring in the Elwha River during and after the two part dam removal process from 2011 to 2016.
+
+**Research Questions:**
+
+*How does water and sediment discharge in the Elwha River differ during and after the two part dam removal process?
+*Can sediment discharge be predicted from water flow on the Elwha River?
+*Does daily water discharge predict total sediment discharge during and after the two part dam removal process?
 
 \newpage
 
 # Dataset Information
 
-Data was collected daily at the USGS gaging station with identification number 12046260, located on the Elwha River at the diversion near Port Angeles, Washington. Data was published February 7, 2020 by USGS and accessed April 20, 2020. The datea was collected from September 15, 2011 to September 30, 2016. The dataset contains daily measurements and estimates of discharge and various parameters of sediment loads. Sediment load parameters include suspended concentration, loads of suspended fine-grained particles and sand particles, and gauged bedload for particles from 0mm to 16mm. The dataset is part of a larger study that created a 5 year sediment budget and morphodynamic analysis of the Elwha River following the two dam removals. Research into the time frame of the two part dam removal process supplied dates for time stamps and classification of "during" the dam removal process, and "after" completion of the project. Removal of the Glines Canyon Dam began on September 15, 2011, and September 17, 2011 for the Elwha Dam (NPS 2019). The entire project was completed on August 26, 2014 (National Park Trips 2015).Therefore, "during" is classified as September 15, 2011 to August 26, 2014, and "after" is classified as August 27, 104 until the end of sampling, September 30, 2016.
+Data was collected daily at the USGS gaging station with identification number 12046260, located on the Elwha River at the diversion near Port Angeles, Washington. This gage site is located downstream of both the Elwha and Glines Canyon Dam. Data was published February 7, 2020 by USGS and accessed April 20, 2020. The datea was collected from September 15, 2011 to September 30, 2016. The dataset contains daily measurements and estimates of discharge and various parameters of sediment loads. Sediment load parameters include suspended concentration, loads of suspended fine-grained particles and sand particles, and gauged bedload for particles from 0mm to 16mm. The dataset is part of a larger study that created a 5 year sediment budget and morphodynamic analysis of the Elwha River following the two dam removals. Research into the time frame of the two part dam removal process supplied dates for time stamps and classification of "during" the dam removal process, and "after" completion of the project. Removal of the Glines Canyon Dam began on September 15, 2011, and September 17, 2011 for the Elwha Dam (NPS 2019). The entire project was completed on August 26, 2014 (National Park Trips 2015).Therefore, "during" is classified as September 15, 2011 to August 26, 2014, and "after" is classified as August 27, 104 until the end of sampling, September 30, 2016.
 
 
 
@@ -260,7 +267,7 @@ geom_boxplot(aes(x = TimeStamp, y = TotalSedimentDischarge), color="skyblue4", a
 
 \newpage
 
-## Question 2: Can we predict sediment discharge from water flow on the Elwha River?
+## Question 2: Can sediment discharge be predicted from water flow on the Elwha River?
 
 Increased water flow on a river should carry more sediment, producing more overal sediment discharge. An analysis of water discharge and sediment discharge is performed over the entirity of the sampling period to find a general trend of the relationship of these two parameters over time on the Elwha. 
 
@@ -334,3 +341,5 @@ Ritchie, A.C., Curran, C.A., Magirl, C.S., Bountry, J.A., Hilldale, R.C., Randle
 National Park Service. 2019. Elwha River Restoration: Dam Removal. Olympic National Park Washington, National Park Service, https://nps.gov/olym
 
 National Park Trips. 2015. Saving salmon by demolishing dams on the Elwha River. Olympic National Park Trips, https://myolympicpark.com
+
+United States Geologic Survey. 2018. Moving Mountains: Elwha River Still Changing Five Years After World’s Largest Dam-Removal Project: More than 20 million tons of sediment flushed to the sea. Department of the Interior, US Geological Survey, Reston, VA. https://www.usgs.gov
