@@ -223,7 +223,7 @@ tapply(USGS_ElwhaRiverDischarge_TimeStamp$DailyDischarge, USGS_ElwhaRiverDischar
 ```
 
 
-##Question@: Can we predict sediment discharge from water flow?
+## Question 2: Can we predict sediment discharge from water flow?
 >Perform a linear regression- more info from lesson 12 of class lessons
 
 ```{r Simple Linear REgression}
