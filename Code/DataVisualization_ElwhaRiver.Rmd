@@ -101,13 +101,101 @@ USGS_ElwhaDischarge_After <- USGS_ElwhaRiverDischarge %>% filter(Date > as.Date(
 USGS_ElwhaDischarge_After$TimeStamp<-"After"
 USGS_ElwhaDischarge_During$TimeStamp<-"During"
 
+USGS_ElwhaRiverDischarge_TimeStamp<- full_join(USGS_ElwhaDischarge_After, USGS_ElwhaDischarge_During)
 
+write.csv(USGS_ElwhaRiverDischarge_TimeStamp, row.names = FALSE, file =("./Processed/USGS_ELwhaRiverDischarge_TimeStamped_processed.csv"))
 ```
 
 ```{r Two Way Ttest for Water Discharge}
-shapiro.test(EPAair$Ozone[EPAair$Year == 2018])
+shapiro.test(USGS_ElwhaRiverDischarge_TimeStamp$DailyDischarge[USGS_ElwhaRiverDischarge_TimeStamp$TimeStamp == "After"])
+#Results
+#W = 0.70006, p-value < 2.2e-16
 
-shapiro.test(EPAair$Ozone[EPAair$Year == 2019])
+#shapiro.test(EPAair$Ozone[EPAair$Year == 2019]) EXAMPLE this was run twice, one for each year comparing (2018, 2019)
+#therefore mine will be run for the two different time periods i am running my test, before and after indicated by the time stamp column
 
+shapiro.test(USGS_ElwhaRiverDischarge_TimeStamp$DailyDischarge[USGS_ElwhaRiverDischarge_TimeStamp$TimeStamp == "During"])
+#results
+#W = 0.87227, p-value < 2.2e-16
+
+var.test(USGS_ElwhaRiverDischarge_TimeStamp$DailyDischarge ~ USGS_ElwhaRiverDischarge_TimeStamp$TimeStamp)
+#results
+#F test to compare two variances
+#data:  USGS_ElwhaRiverDischarge_TimeStamp$DailyDischarge by USGS_ElwhaRiverDischarge_TimeStamp$TimeStamp
+#F = 2.4947, num df = 765, denom df = 1075, p-value < 2.2e-16
+#alternative hypothesis: true ratio of variances is not equal to 1
+#95 percent confidence interval:
+# 2.189581 2.846533
+#sample estimates:
+#ratio of variances 
+ #         2.494707 
+
+ vartest<-ggplot(USGS_ElwhaRiverDischarge_TimeStamp, aes(x = DailyDischarge, color = TimeStamp)) + geom_freqpoly()
+ 
+ 
+ DailyDischarge.twosample <- t.test(USGS_ElwhaRiverDischarge_TimeStamp$DailyDischarge ~ USGS_ElwhaRiverDischarge_TimeStamp$TimeStamp) 
+ 
+DailyDischarge.twosample
+#Results
+#lternative hypothesis: true difference in means is not equal to 0
+#95 percent confidence interval:
+# -5.269339  2.453161
+#sample estimates:
+# mean in group After mean in group During 
+ #           46.89956             48.30765 
+
+
+DailyDischarge.twosample$p.value
+#results
+#0.4744595
+
+
+#Format as GLM
+
+DailyDischarge.twosample2 <- lm(USGS_ElwhaRiverDischarge_TimeStamp$DailyDischarge ~ USGS_ElwhaRiverDischarge_TimeStamp$TimeStamp) 
+summary(DailyDischarge.twosample2)
+plot(DailyDischarge.twosample2)
+
+
+#From the shapiro test, we can see that our data is not normally distributed, so in order to do away with a normal distribution assumption, we need to perform wilcoxon test
+
+
+
+```
+
+```{r Wilcoxon test for water discharge}
+DailyDischarge.twosample.wilcox <- wilcox.test(USGS_ElwhaRiverDischarge_TimeStamp$DailyDischarge ~ USGS_ElwhaRiverDischarge_TimeStamp$TimeStamp) 
+
+DailyDischarge.twosample.wilcox
+#Results
+#Wilcoxon rank sum test with continuity correction
+#W = 349134, p-value = 2.179e-08
+#alternative hypothesis: true location shift is not equal to 0
+
+#Interpretation significant difference in daily water discharge during and after the dam removal process(p value<0.0001, Wilcoxon test)
+
+
+#Graph this?
+
+
+```
+
+```{r Two way T-test for Total SEdiment Discharge}
+
+shapiro.test(USGS_ElwhaRiverDischarge_TimeStamp$TotalSedimentDischarge[USGS_ElwhaRiverDischarge_TimeStamp$TimeStamp == "After"])
+#W = 0.21518, p-value < 2.2e-16
+shapiro.test(USGS_ElwhaRiverDischarge_TimeStamp$TotalSedimentDischarge[USGS_ElwhaRiverDischarge_TimeStamp$TimeStamp == "During"])
+#W = 0.37967, p-value < 2.2e-16
+#Not normal distribution
+
+#To the wilcoxon test
+```
+
+```{r Wilcoxon Test for Total Sediment Discharge}
+SedimentDischarge.twosample.wilcox <- wilcox.test(USGS_ElwhaRiverDischarge_TimeStamp$TotalSedimentDischarge ~ USGS_ElwhaRiverDischarge_TimeStamp$TimeStamp) 
+
+SedimentDischarge.twosample.wilcox
+#W = 209858, p-value < 2.2e-16
+#Interpretation significant difference in daily total sediment discharge during and after the dam removal process(p value<0.0001, Wilcoxon test)
 ```
 
