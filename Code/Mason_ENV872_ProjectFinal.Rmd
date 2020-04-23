@@ -162,7 +162,7 @@ With daily water discharge and total sediment discharge being important paramete
 
 ## Question 1: How does water and sediment discharge in the Elwha River differ during and after the two part dam removal process?
 
-A closer look into total sediment discharge and daily discharge of water from the Elwha River with attention on the time stamps of when the dam removal project begigs, and when it is completed, *Figures 8 and 9*, prompted an in depth analysis of trends. Data was separated into during the dam removal process and after its completion, September 26, 2014.
+A closer look into total sediment discharge and daily discharge of water from the Elwha River with attention on the time stamps of when the dam removal project begigs, and when it is completed, *Figures 8 and 9*, prompted an in depth analysis of trends. Data was separated into during the dam removal process and after its completion, September 26, 2014. Part one of this analysis hoped to determine whether the means of daily water discharge were equivalent during and after the dam removal process. similarly, part two hoped to determine whether the means of daily total sediment discharge were equivalent during and after the dam removal process. 
 
 ```{r Intro to Question (Figure 8), echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Daily water discharge from the Elwha River from September 15, 2011 to September 30, 2016 measured at the U.S. Geological Survey gaging station 12046260 at the diversion near Port Angeles, Washington. A project to remove the Elwha and Glines Canyon Dam began on September 15, 2011, and was completed on August 26, 2014. Mean Daily discharge across the whole time range was 47.7."}
 
@@ -211,7 +211,10 @@ geom_vline(data=d, mapping=aes(xintercept=date), color="skyblue4", lty=5, size=.
 ```
 
 
-A two sample t-test revealed...
+Daily water discharge data, *Figure 8*, was classified as during or after the dam removal process based on dates. September 26, 2014 was the dividing date. A two-sample t-test was run to determine if means are equivalent during and after dam removal. This test assumes equal variance, however, results showed there is not an equal variance, meaning the assumption of normality is not met (p-value < 0.05; Shapiro-Wilk normality test).Similarly, Daily total sediment discharge data, *Figure 9*, was classified as during or after the dam removal process based on dates, and a two-sample t-test was also run. Daily total sediment discharge over time does not have equal variance as well (p-value <0.05; Shapiro-Wilk normality test).
+
+To avoid the assumption or normality, a non-parametric method, Wilcoxon rank sum, is used to determine if means are equivalent during and after dam removal for both water and sediment dischagre. The mean daily discharge during the dam removal process is 48.31 m^2/s, and 46.9 m^2/s after the completion of the project. There is a significant difference between the means of daily water discharge during and after dam removal (*Figure 10*, W = 349134, p-value < 0.0001, Wilcoxon rank sum test). The mean daily total sediment discharge during the dam removal process is 11,319.0 tonnes, and 7,888.0 tonnes for after completion of dam removal. There is a significant different between the means of daily total sediment discharge during and after dam removal (*Figure 11*, W = 209858, p-value <0.0001, Wilcoxon rank sum test).
+
 
 ```{r Two Way T-Test REsults Water (Figure 10), echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Daily water discharge distribution during and after the Elwha River two dam removal process. During the dam removal is classified by dates from September 15, 2011 to August 26, 2014, and after is from then until September 30, 2016."}
 
