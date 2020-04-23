@@ -118,7 +118,13 @@ Project year| Year of sampling project, extending from 1-5 years|character|year
 
 **USGS_ElwhaRiverDischarge_TimeStamped_processed.csv**
 
-This have the same parameters as the above datasets but it has an additional column labeled "TimeStamp". This character column distinguishes "during" data that follows dates during the dam removal process, all dates from September 15, 2011 to August 26, 2014. The "after"" data follows dates after the dam removal process was complete, August 27, 2014 to September 30, 2016. 
+This have the same parameters as the above datasets but it has an additional column labeled "TimeStamp". This character column distinguishes "during" data that follows dates during the dam removal process, all dates from September 15, 2011 to August 26, 2014. The "after" data follows dates after the dam removal process was complete, August 27, 2014 to September 30, 2016. 
+
+
+**USGS_ElwhaRiverDischarge_During_processed.csv**
+**USGS_ElwhaRiverDischarge_After_processed.csv**
+
+This has the same parameters as the aboce datasets, but instead it is divided into two different datasets based on teh Time Stamp column. The "during" dataset file includes data with dates from September 15, 2011 to August 26, 2014. The "after" dataset includes data with dates after the dam removal process was complete, August 27, 2014 to September 30, 2016. 
 
 
 ## Scripts and code
