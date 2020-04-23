@@ -122,6 +122,7 @@ This have the same parameters as the above datasets but it has an additional col
 
 
 **USGS_ElwhaRiverDischarge_During_processed.csv**
+
 **USGS_ElwhaRiverDischarge_After_processed.csv**
 
 This has the same parameters as the aboce datasets, but instead it is divided into two different datasets based on teh Time Stamp column. The "during" dataset file includes data with dates from September 15, 2011 to August 26, 2014. The "after" dataset includes data with dates after the dam removal process was complete, August 27, 2014 to September 30, 2016. 
