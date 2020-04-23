@@ -93,17 +93,19 @@ Question: How does water and sediment discahrge change during and after the dam 
 >Need to divide the explanatory value of time into two categories- during dam removal (2011-09-15 to 2014-08-26) and after dam removal (2014-08-27 to 2016-09-30). The response variable is discharge. Analysis will be performed using a two sample ttest. One ttest on total sediment discharge over time, and one on total discharge (water) over time. 
 
 ```{r Creating during and post dam removal data}
-USGS_ElwhaDischarge_During <- USGS_ElwhaRiverDischarge %>% filter(Date < as.Date("2014-08-26"))
+USGS_ElwhaRiverDischarge_During <- USGS_ElwhaRiverDischarge %>% filter(Date < as.Date("2014-08-26"))
 
-USGS_ElwhaDischarge_After <- USGS_ElwhaRiverDischarge %>% filter(Date > as.Date("2014-08-26"))
+USGS_ElwhaRiverDischarge_After <- USGS_ElwhaRiverDischarge %>% filter(Date > as.Date("2014-08-26"))
 
 #Add "after" and "during" columns
-USGS_ElwhaDischarge_After$TimeStamp<-"After"
-USGS_ElwhaDischarge_During$TimeStamp<-"During"
+USGS_ElwhaRiverDischarge_After$TimeStamp<-"After"
+USGS_ElwhaRiverDischarge_During$TimeStamp<-"During"
 
-USGS_ElwhaRiverDischarge_TimeStamp<- full_join(USGS_ElwhaDischarge_After, USGS_ElwhaDischarge_During)
+USGS_ElwhaRiverDischarge_TimeStamp<- full_join(USGS_ElwhaRiverDischarge_After, USGS_ElwhaRiverDischarge_During)
 
-write.csv(USGS_ElwhaRiverDischarge_TimeStamp, row.names = FALSE, file =("./Processed/USGS_ELwhaRiverDischarge_TimeStamped_processed.csv"))
+write.csv(USGS_ElwhaRiverDischarge_TimeStamp, row.names = FALSE, file =("./Processed/USGS_ElwhaRiverDischarge_TimeStamped_processed.csv"))
+write.csv(USGS_ElwhaRiverDischarge_After, row.names = FALSE, file =("./Processed/USGS_ElwhaRiverDischarge_After_processed.csv"))
+write.csv(USGS_ElwhaRiverDischarge_During, row.names = FALSE, file =("./Processed/USGS_EwhaRiverDischarge_During_processed.csv"))
 ```
 
 ```{r Two Way Ttest for Water Discharge}
@@ -214,9 +216,82 @@ tapply(USGS_ElwhaRiverDischarge_TimeStamp$TotalSedimentDischarge, USGS_ElwhaRive
 ggplot(USGS_ElwhaRiverDischarge_TimeStamp) +
 geom_boxplot(aes(x = TimeStamp, y = DailyDischarge), color="skyblue4", alpha=0.75)+
   xlab("Timeframe in the Dam \nRemoval Process")+
-   ylab(expression(Daily~Discharge~(m^2/s)))
+   ylab(expression(Daily~Discharge~(m^2/s)))+
   mytheme
 #summary stats
 tapply(USGS_ElwhaRiverDischarge_TimeStamp$DailyDischarge, USGS_ElwhaRiverDischarge_TimeStamp$TimeStamp, summary)
+```
+
+
+##Question@: Can we predict sediment discharge from water flow?
+>Perform a linear regression- more info from lesson 12 of class lessons
+
+```{r Simple Linear REgression}
+sedimentandflowregression<-lm(USGS_ElwhaRiverDischarge_TimeStamp$DailyDischarge~USGS_ElwhaRiverDischarge_TimeStamp$TotalSedimentDischarge)
+
+summary(sedimentandflowregression)
+
+cor.test(USGS_ElwhaRiverDischarge_TimeStamp$DailyDischarge, USGS_ElwhaRiverDischarge_TimeStamp$TotalSedimentDischarge)
+#results
+#cor 0.7346606  #significant positive correlation
+
+
+#Let's graph...
+par(mfrow = c(2,2), mar=c(1,1,1,1)) 
+plot(sedimentandflowregression)
+par(mfrow = c(1,1))
+
+dischargebywaterflow <-
+ggplot(USGS_ElwhaRiverDischarge_TimeStamp, 
+       aes(x = DailyDischarge, y = TotalSedimentDischarge)) + 
+geom_point( alpha=0.5)+
+  geom_smooth(method = 'lm', se = FALSE, color = "skyblue")+
+  xlab(expression(Daily~Water~Discharge~(m^2/s)))+
+  ylab("Daily Total Sediment \nDischarge (tonnes)")
+print(dischargebywaterflow)
+```
+
+#Question 3: Does daily water discharge predict total sediment discharge during and after the two part dam removal process?
+a linear regression and graph for during and a linear regression and graph for after
+compare the two
+
+```{r Linear Regression During}
+duringregression<-lm(USGS_ElwhaRiverDischarge_During$DailyDischarge~USGS_ElwhaRiverDischarge_During$TotalSedimentDischarge)
+summary(duringregression)
+
+cor.test(USGS_ElwhaRiverDischarge_During$DailyDischarge, USGS_ElwhaRiverDischarge_During$TotalSedimentDischarge)
+#cor 0.7038759 
+
+#graph
+dischargebywaterflow_during <-
+ggplot(USGS_ElwhaRiverDischarge_During, 
+       aes(x = DailyDischarge, y = TotalSedimentDischarge)) + 
+geom_point( alpha=0.5)+
+  geom_smooth(method = 'lm', se = FALSE, color = "skyblue")+
+  xlab(expression(Daily~Water~Discharge~(m^2/s)))+
+  ylab("Daily Total Sediment \nDischarge (tonnes)")
+print(dischargebywaterflow_during)
+
+```
+
+
+```{r linear regression After}
+afterregression<-lm(USGS_ElwhaRiverDischarge_After$DailyDischarge~USGS_ElwhaRiverDischarge_After$TotalSedimentDischarge)
+summary(afterregression)
+
+cor.test(USGS_ElwhaRiverDischarge_After$DailyDischarge, USGS_ElwhaRiverDischarge_After$TotalSedimentDischarge)
+#cor 0.7706031 
+
+#graph
+dischargebywaterflow_after <-
+ggplot(USGS_ElwhaRiverDischarge_After, 
+       aes(x = DailyDischarge, y = TotalSedimentDischarge)) + 
+geom_point( alpha=0.5)+
+  geom_smooth(method = 'lm', se = FALSE, color = "skyblue")+
+  xlab(expression(Daily~Water~Discharge~(m^2/s)))+
+  ylab("Daily Total Sediment \nDischarge (tonnes)")
+print(dischargebywaterflow_after)
+
+
 ```
 

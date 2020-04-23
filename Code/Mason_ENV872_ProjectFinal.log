@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2020.1.8)  22 APR 2020 20:40
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2020.1.8)  22 APR 2020 23:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -673,7 +673,7 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 
 [4] [5] [6]
 <"Mason_ENV872_ProjectFinal_files/figure-latex/""Exploratory Analysis Figure 1-
-1".pdf, id=109, 469.755pt x 325.215pt>
+1".pdf, id=127, 469.755pt x 325.215pt>
 File: "Mason_ENV872_ProjectFinal_files/figure-latex/""Exploratory Analysis Figu
 re 1-1".pdf Graphic file (type pdf)
 <use "Mason_ENV872_ProjectFinal_files/figure-latex/""Exploratory Analysis Figur
@@ -682,7 +682,7 @@ Package pdftex.def Info: "Mason_ENV872_ProjectFinal_files/figure-latex/""Explor
 atory Analysis Figure 1-1".pdf  used on input line 119.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 <"Mason_ENV872_ProjectFinal_files/figure-latex/""Exploratory Analysis Figure 2-
-1".pdf, id=110, 469.755pt x 325.215pt>
+1".pdf, id=128, 469.755pt x 325.215pt>
 File: "Mason_ENV872_ProjectFinal_files/figure-latex/""Exploratory Analysis Figu
 re 2-1".pdf Graphic file (type pdf)
 <use "Mason_ENV872_ProjectFinal_files/figure-latex/""Exploratory Analysis Figur
@@ -691,7 +691,7 @@ Package pdftex.def Info: "Mason_ENV872_ProjectFinal_files/figure-latex/""Explor
 atory Analysis Figure 2-1".pdf  used on input line 126.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 <"Mason_ENV872_ProjectFinal_files/figure-latex/""Exploratory Analysis Figure 3-
-1".pdf, id=111, 469.755pt x 325.215pt>
+1".pdf, id=129, 469.755pt x 325.215pt>
 File: "Mason_ENV872_ProjectFinal_files/figure-latex/""Exploratory Analysis Figu
 re 3-1".pdf Graphic file (type pdf)
 <use "Mason_ENV872_ProjectFinal_files/figure-latex/""Exploratory Analysis Figur
@@ -700,7 +700,7 @@ Package pdftex.def Info: "Mason_ENV872_ProjectFinal_files/figure-latex/""Explor
 atory Analysis Figure 3-1".pdf  used on input line 133.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 <"Mason_ENV872_ProjectFinal_files/figure-latex/""Exploratory Analysis Figure 4-
-1".pdf, id=112, 469.755pt x 325.215pt>
+1".pdf, id=130, 469.755pt x 325.215pt>
 File: "Mason_ENV872_ProjectFinal_files/figure-latex/""Exploratory Analysis Figu
 re 4-1".pdf Graphic file (type pdf)
 <use "Mason_ENV872_ProjectFinal_files/figure-latex/""Exploratory Analysis Figur
@@ -709,7 +709,7 @@ Package pdftex.def Info: "Mason_ENV872_ProjectFinal_files/figure-latex/""Explor
 atory Analysis Figure 4-1".pdf  used on input line 140.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 <"Mason_ENV872_ProjectFinal_files/figure-latex/""Exploratory Analysis Figure 5-
-1".pdf, id=113, 469.755pt x 325.215pt>
+1".pdf, id=131, 469.755pt x 325.215pt>
 File: "Mason_ENV872_ProjectFinal_files/figure-latex/""Exploratory Analysis Figu
 re 5-1".pdf Graphic file (type pdf)
 <use "Mason_ENV872_ProjectFinal_files/figure-latex/""Exploratory Analysis Figur
@@ -724,7 +724,7 @@ ory Analysis Figure 3-1.pdf>] [10 <./Mason_ENV872_ProjectFinal_files/figure-lat
 ex/Exploratory Analysis Figure 4-1.pdf>] [11 <./Mason_ENV872_ProjectFinal_files
 /figure-latex/Exploratory Analysis Figure 5-1.pdf>]
 <"Mason_ENV872_ProjectFinal_files/figure-latex/""Exploratory Analysis Figure 6-
-1".pdf, id=168, 469.755pt x 325.215pt>
+1".pdf, id=186, 469.755pt x 325.215pt>
 File: "Mason_ENV872_ProjectFinal_files/figure-latex/""Exploratory Analysis Figu
 re 6-1".pdf Graphic file (type pdf)
 <use "Mason_ENV872_ProjectFinal_files/figure-latex/""Exploratory Analysis Figur
@@ -733,7 +733,7 @@ Package pdftex.def Info: "Mason_ENV872_ProjectFinal_files/figure-latex/""Explor
 atory Analysis Figure 6-1".pdf  used on input line 174.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 <"Mason_ENV872_ProjectFinal_files/figure-latex/""Exploratory Analysis Figure 7-
-1".pdf, id=169, 469.755pt x 325.215pt>
+1".pdf, id=187, 469.755pt x 325.215pt>
 File: "Mason_ENV872_ProjectFinal_files/figure-latex/""Exploratory Analysis Figu
 re 7-1".pdf Graphic file (type pdf)
 <use "Mason_ENV872_ProjectFinal_files/figure-latex/""Exploratory Analysis Figur
@@ -744,43 +744,74 @@ atory Analysis Figure 7-1".pdf  used on input line 181.
 [12 <./Mason_ENV872_ProjectFinal_files/figure-latex/Exploratory Analysis Figure
  6-1.pdf>] [13 <./Mason_ENV872_ProjectFinal_files/figure-latex/Exploratory Anal
 ysis Figure 7-1.pdf>] [14]
-<"Mason_ENV872_ProjectFinal_files/figure-latex/""Intro to Question Figure 1-1".
-pdf, id=199, 469.755pt x 325.215pt>
-File: "Mason_ENV872_ProjectFinal_files/figure-latex/""Intro to Question Figure 
-1-1".pdf Graphic file (type pdf)
-<use "Mason_ENV872_ProjectFinal_files/figure-latex/""Intro to Question Figure 1
--1".pdf>
+<"Mason_ENV872_ProjectFinal_files/figure-latex/""Intro to Question (Figure 8)-1
+".pdf, id=217, 469.755pt x 325.215pt>
+File: "Mason_ENV872_ProjectFinal_files/figure-latex/""Intro to Question (Figure
+ 8)-1".pdf Graphic file (type pdf)
+<use "Mason_ENV872_ProjectFinal_files/figure-latex/""Intro to Question (Figure 
+8)-1".pdf>
 Package pdftex.def Info: "Mason_ENV872_ProjectFinal_files/figure-latex/""Intro 
-to Question Figure 1-1".pdf  used on input line 220.
+to Question (Figure 8)-1".pdf  used on input line 227.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-<"Mason_ENV872_ProjectFinal_files/figure-latex/""Intro to Question Figure 2-1".
-pdf, id=200, 469.755pt x 325.215pt>
-File: "Mason_ENV872_ProjectFinal_files/figure-latex/""Intro to Question Figure 
-2-1".pdf Graphic file (type pdf)
-<use "Mason_ENV872_ProjectFinal_files/figure-latex/""Intro to Question Figure 2
--1".pdf>
+<"Mason_ENV872_ProjectFinal_files/figure-latex/""Intro to Question (Figure 9)-1
+".pdf, id=218, 469.755pt x 325.215pt>
+File: "Mason_ENV872_ProjectFinal_files/figure-latex/""Intro to Question (Figure
+ 9)-1".pdf Graphic file (type pdf)
+<use "Mason_ENV872_ProjectFinal_files/figure-latex/""Intro to Question (Figure 
+9)-1".pdf>
 Package pdftex.def Info: "Mason_ENV872_ProjectFinal_files/figure-latex/""Intro 
-to Question Figure 2-1".pdf  used on input line 231.
+to Question (Figure 9)-1".pdf  used on input line 238.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[15 <./Mason_ENV872_ProjectFinal_files/figure-latex/Intro to Question Figure 1-
-1.pdf>] [16 <./Mason_ENV872_ProjectFinal_files/figure-latex/Intro to Question F
-igure 2-1.pdf>] [17]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 253.
-[18]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 253.
+<"Mason_ENV872_ProjectFinal_files/figure-latex/""Two Way T-Test REsults Water (
+Figure 10)-1".pdf, id=219, 469.755pt x 325.215pt>
+File: "Mason_ENV872_ProjectFinal_files/figure-latex/""Two Way T-Test REsults Wa
+ter (Figure 10)-1".pdf Graphic file (type pdf)
+<use "Mason_ENV872_ProjectFinal_files/figure-latex/""Two Way T-Test REsults Wat
+er (Figure 10)-1".pdf>
+Package pdftex.def Info: "Mason_ENV872_ProjectFinal_files/figure-latex/""Two Wa
+y T-Test REsults Water (Figure 10)-1".pdf  used on input line 251.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+<"Mason_ENV872_ProjectFinal_files/figure-latex/""Two Way T-Test REsults sedimen
+t(Figure 11)-1".pdf, id=220, 469.755pt x 325.215pt>
+File: "Mason_ENV872_ProjectFinal_files/figure-latex/""Two Way T-Test REsults se
+diment(Figure 11)-1".pdf Graphic file (type pdf)
+<use "Mason_ENV872_ProjectFinal_files/figure-latex/""Two Way T-Test REsults sed
+iment(Figure 11)-1".pdf>
+Package pdftex.def Info: "Mason_ENV872_ProjectFinal_files/figure-latex/""Two Wa
+y T-Test REsults sediment(Figure 11)-1".pdf  used on input line 260.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+[15 <./Mason_ENV872_ProjectFinal_files/figure-latex/Intro to Question (Figure 8
+)-1.pdf>] [16 <./Mason_ENV872_ProjectFinal_files/figure-latex/Intro to Question
+ (Figure 9)-1.pdf>] [17 <./Mason_ENV872_ProjectFinal_files/figure-latex/Two Way
+ T-Test REsults Water (Figure 10)-1.pdf>] [18 <./Mason_ENV872_ProjectFinal_file
+s/figure-latex/Two Way T-Test REsults sediment(Figure 11)-1.pdf>]
+<"Mason_ENV872_ProjectFinal_files/figure-latex/""Linear Regression (figure 12)-
+1".pdf, id=272, 469.755pt x 325.215pt>
+File: "Mason_ENV872_ProjectFinal_files/figure-latex/""Linear Regression (figure
+ 12)-1".pdf Graphic file (type pdf)
+<use "Mason_ENV872_ProjectFinal_files/figure-latex/""Linear Regression (figure 
+12)-1".pdf>
+Package pdftex.def Info: "Mason_ENV872_ProjectFinal_files/figure-latex/""Linear
+ Regression (figure 12)-1".pdf  used on input line 282.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+[19 <./Mason_ENV872_ProjectFinal_files/figure-latex/Linear Regression (figure 1
+2)-1.pdf>] [20]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 305.
+[21]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 305.
 (./Mason_ENV872_ProjectFinal.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 253.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 253.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 305.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 305.
 Package rerunfilecheck Info: File `Mason_ENV872_ProjectFinal.out' has not chang
 ed.
-(rerunfilecheck)             Checksum: FD5E8B939AE801A5E6A9DB57CE9CD654;1589.
+(rerunfilecheck)             Checksum: CD886BF92344F06439716D76B6BFB1B4;2090.
  ) 
 Here is how much of TeX's memory you used:
- 12706 strings out of 493610
- 188853 string characters out of 6159294
- 289067 words of memory out of 5000000
- 16588 multiletter control sequences out of 15000+600000
- 57380 words of font info for 88 fonts, out of 8000000 for 9000
+ 12742 strings out of 493610
+ 190745 string characters out of 6159294
+ 290179 words of memory out of 5000000
+ 16606 multiletter control sequences out of 15000+600000
+ 57873 words of font info for 93 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
  39i,6n,42p,833b,405s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2019basic/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}</usr/l
@@ -788,10 +819,10 @@ ocal/texlive/2019basic/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/
 texlive/2019basic/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texliv
 e/2019basic/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/local/texlive/2019
 basic/texmf-dist/fonts/type1/public/lm/lmri12.pfb>
-Output written on Mason_ENV872_ProjectFinal.pdf (18 pages, 827396 bytes).
+Output written on Mason_ENV872_ProjectFinal.pdf (21 pages, 956512 bytes).
 PDF statistics:
- 264 PDF objects out of 1000 (max. 8388607)
- 219 compressed objects within 3 object streams
- 45 named destinations out of 1000 (max. 500000)
- 12390 words of extra memory for PDF output out of 14400 (max. 10000000)
+ 329 PDF objects out of 1000 (max. 8388607)
+ 275 compressed objects within 3 object streams
+ 53 named destinations out of 1000 (max. 500000)
+ 12413 words of extra memory for PDF output out of 14400 (max. 10000000)
 

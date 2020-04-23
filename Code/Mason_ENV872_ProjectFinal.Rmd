@@ -48,6 +48,9 @@ theme_set(mytheme)
 USGS_ElwhaRiverDischarge<-read.csv("./Processed/USGS_ElwhaRiver_processed.csv")
 USGS_ElwhaRiverDischarge$Date<- as.Date(USGS_ElwhaRiverDischarge$Date, format = "%Y-%m-%d")
 class(USGS_ElwhaRiverDischarge$Date)
+USGS_ElwhaRiverDischarge_TimeStamp<-read.csv("./Processed/USGS_ElwhaRiverDischarge_TimeStamped_processed.csv")
+USGS_ElwhaRiverDischarge_During<-read.csv("./Processed/USGS_ElwhaRiverDischarge_During_processed.csv")
+USGS_ElwhaRiverDischarge_After<-read.csv("./Processed/USGS_ElwhaRiverDischarge_After_processed.csv")
 ```
 
 
@@ -159,7 +162,7 @@ With daily water discharge and total sediment discharge being important paramete
 
 ## Question 1: How does water and sediment discharge in the Elwha River differ during and after the two part dam removal process?
 
-A closer look into total sediment discharge and daily discharge of water from the Elwha River with attention on the time stamps of when the dam removal project begings, and when it is completed, *Figures 8 and 9*, prompted an in depth analysis of trends. Data was separated into during the dam removal process and after its completion, September 26, 2014.
+A closer look into total sediment discharge and daily discharge of water from the Elwha River with attention on the time stamps of when the dam removal project begigs, and when it is completed, *Figures 8 and 9*, prompted an in depth analysis of trends. Data was separated into during the dam removal process and after its completion, September 26, 2014.
 
 ```{r Intro to Question (Figure 8), echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Daily water discharge from the Elwha River from September 15, 2011 to September 30, 2016 measured at the U.S. Geological Survey gaging station 12046260 at the diversion near Port Angeles, Washington. A project to remove the Elwha and Glines Canyon Dam began on September 15, 2011, and was completed on August 26, 2014. Mean Daily discharge across the whole time range was 47.7."}
 
@@ -176,7 +179,7 @@ geom_vline(data=d, mapping=aes(xintercept=date), color="skyblue4", lty=5, size=.
             size=2, angle=90, vjust=-0.4, hjust=0, color= "skyblue4", fontface="bold")+
   geom_text(x= as.Date("2015-11-01"), y=20, size = 2, label= "Mean Daily Discharge", color= "sienna3", vjust=-0.4, hjust=0, fontface="bold")+
   mytheme+
-  ylab(expression(Daily~Discharge~(m^2/s)))+
+  ylab(expression(Daily~Water~Discharge~(m^2/s)))+
   xlab("Date")+
   theme(axis.title.y = element_text(size = rel(.75), angle = 90))+
   theme(axis.title.x = element_text(size= rel(.75)))
@@ -184,7 +187,7 @@ geom_vline(data=d, mapping=aes(xintercept=date), color="skyblue4", lty=5, size=.
 
 ```
 
-```{r Intro to Question (Figure 9), echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Daily total sediment discharge from the Elwha River from September 15, 2011 to September 30, 2016 measured at the U.S. Geological Survey gaging station 12046260 at the diversion near Port Angeles, Washington. A project to remove the Elwha and Glines Canyon Dam began on September 15, 2011, and was completed on August 26, 2014.Mean Daily sediment discharge across the whole time range was 9886.876 tonnes."}
+```{r Intro to Question (Figure 9), echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Daily total sediment discharge from the Elwha River from September 15, 2011 to September 30, 2016 measured at the U.S. Geological Survey gaging station 12046260 at the diversion near Port Angeles, Washington. A project to remove the Elwha and Glines Canyon Dam began on September 15, 2011, and was completed on August 26, 2014. Mean Daily sediment discharge across the whole time range was 9886.876 tonnes."}
 
 d=data.frame(date=as.Date(c("2011-09-15", "2014-08-26")), event=c("Dam Removal Project Begins", "Dam Removal Project Complete"))
 
@@ -210,23 +213,72 @@ geom_vline(data=d, mapping=aes(xintercept=date), color="skyblue4", lty=5, size=.
 
 A two sample t-test revealed...
 
-```{r Two Way T-Test REsults Total Water Discharge(Figure 10), echo=FALSE, message=FALSE, warning=FALSE, fig.cap="x"}
+```{r Two Way T-Test REsults Water (Figure 10), echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Daily water discharge distribution during and after the Elwha River two dam removal process. During the dam removal is classified by dates from September 15, 2011 to August 26, 2014, and after is from then until September 30, 2016."}
 
 ggplot(USGS_ElwhaRiverDischarge_TimeStamp) +
 geom_boxplot(aes(x = TimeStamp, y = DailyDischarge), color="skyblue4", alpha=0.75)+
   xlab("Timeframe in the Dam \nRemoval Process")+
-   ylab(expression(Daily~Discharge~(m^2/s)))
+   ylab(expression(Daily~Water~Discharge~(m^2/s)))+
   mytheme
 
 ```
 
 
-```{r Two Way T-Test REsults  Total sediment discharge(Figure 11), echo=FALSE, message=FALSE, warning=FALSE, fig.cap="x"}
+```{r Two Way T-Test REsults sediment(Figure 11), echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Daily total sediment discharge distribution during and after the Elwha River two dam removal process. During the dam removal is classified by dates from September 15, 2011 to August 26, 2014, and after is from then until September 30, 2016."}
+
 ggplot(USGS_ElwhaRiverDischarge_TimeStamp) +
 geom_boxplot(aes(x = TimeStamp, y = TotalSedimentDischarge), color="skyblue4", alpha=0.75)+
   xlab("Timeframe in the Dam Removal Process")+
   ylab("Total Daily Sediment \nDischarge (tonnes)")+
   mytheme
+
+```
+
+\newpage
+
+## Question 2: Can we predict sediment discharge from water flow on the Elwha River?
+
+Increased water flow on a river should carry more sediment, producing more overal sediment discharge. An analysis of water discharge and sediment discharge is performed over the entirity of the sampling period to find a general trend of the relationship of these two parameters over time on the Elwha. 
+
+```{r Linear Regression (figure 12), echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Daily water discharge as an indicator for daily total sediment discharge on the Elwha River, with a linear regression."}
+dischargebywaterflow <-
+ggplot(USGS_ElwhaRiverDischarge_TimeStamp, 
+       aes(x = DailyDischarge, y = TotalSedimentDischarge)) + 
+geom_point( alpha=0.5)+
+  geom_smooth(method = 'lm', se = FALSE, color = "skyblue")+
+  xlab(expression(Daily~Water~Discharge~(m^2/s)))+
+  ylab("Daily Total Sediment \nDischarge (tonnes)")
+print(dischargebywaterflow)
+```
+
+A linear regression revealed...
+
+
+##Question 3: Does daily water discharge predict total sediment discharge during and after the two part dam removal process?
+
+```{r Linear During (Figure 13), echo=FALSE, message=FALSE, warning=FALSE, fig.cap="x"}
+dischargebywaterflow_during <-
+ggplot(USGS_ElwhaRiverDischarge_During, 
+       aes(x = DailyDischarge, y = TotalSedimentDischarge)) + 
+geom_point( alpha=0.5)+
+  geom_smooth(method = 'lm', se = FALSE, color = "skyblue")+
+  xlab(expression(Daily~Water~Discharge~(m^2/s)))+
+  ylab("Daily Total Sediment \nDischarge (tonnes)")
+print(dischargebywaterflow_during)
+```
+
+
+```{r Linear After (Figure 14), echo=FALSE, message=FALSE, warning=FALSE, fig.cap="x"}
+
+dischargebywaterflow_after <-
+ggplot(USGS_ElwhaRiverDischarge_After, 
+       aes(x = DailyDischarge, y = TotalSedimentDischarge)) + 
+geom_point( alpha=0.5)+
+  geom_smooth(method = 'lm', se = FALSE, color = "skyblue")+
+  xlab(expression(Daily~Water~Discharge~(m^2/s)))+
+  ylab("Daily Total Sediment \nDischarge (tonnes)")
+print(dischargebywaterflow_after)
+
 ```
 
 
