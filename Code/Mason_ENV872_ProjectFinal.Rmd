@@ -290,7 +290,11 @@ print(dischargebywaterflow_after)
 ```
 
 
+There is a strong, significant positive correlation between water and sediment discharge during the dam removal process (cor= 0.70, p-value < 0.0001, pearson's correlation test). During dam removal, water discharge is an effedctive predictor for sediment discharge (*Figure 13*, p-value < 0.0001, R2= 0.50, linear regression). Each square meter per second of water discharge accounted for 0.0007 tonnes of sediment discharge. 
 
+After the completion of dam removal, there is still a strong, significant positive correlation between water and discharge (cor= 0.77, p-value < 0.0001, pearson's correlation test). Water discharge serves as an effective predictor for sediment discharge (*Figure 14*, p-value < 0.0001, R2= 0.59, linear regression). Each square meter per second of water discharge accounted for 0.0017 tonnes of sediment discharge. 
+
+There is a stronger correlation after dam removal completion, making water discharge a better predictor of sediment discharge after dam removal compared to during the process. The model explains accounts for a larger percentage of variance by the explanatory variable of water discharge. 
 
 
 \newpage
